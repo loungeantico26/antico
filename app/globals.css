@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-dark text-cream font-sans;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-block px-8 py-3 bg-gold text-dark font-semibold tracking-widest uppercase text-sm
+           transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/20;
+  }
+
+  .btn-outline {
+    @apply inline-block px-8 py-3 border border-gold text-gold font-semibold tracking-widest uppercase text-sm
+           transition-all duration-300 hover:bg-gold hover:text-dark;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-serif text-cream mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-gold tracking-[0.3em] uppercase text-xs mb-4;
+  }
+
+  .gold-divider {
+    @apply w-16 h-px bg-gold mx-auto my-6;
+  }
+
+  .nav-link {
+    @apply text-cream/70 hover:text-gold transition-colors duration-200 tracking-widest uppercase text-xs font-medium;
+  }
+
+  .card-dark {
+    @apply bg-dark-card border border-dark-border;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0f0d0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #c9a96e;
+  border-radius: 3px;
+}
+
+/* Input styles */
+.input-field {
+  @apply w-full bg-dark-card border border-dark-border text-cream px-4 py-3
+         focus:outline-none focus:border-gold transition-colors duration-200 placeholder-cream/30;
+}
