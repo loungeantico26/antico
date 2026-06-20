@@ -4,8 +4,12 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Antico — იტალიური რესტორანი',
-  description: 'გემრიელი იტალიური სამზარეულო, ხვდება ქართულ სტუმართმოყვარეობას.',
+  title: 'Lounge Antico — Restaurant',
+  description: 'Lounge Antico — იტალიური სამზარეულო ქართული სტუმართმოყვარეობით. ჯავშნები, მენიუ, გალერეა.',
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

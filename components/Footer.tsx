@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
 import content from '@/data/content.json'
 
@@ -10,7 +11,21 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
-            <h3 className="text-3xl font-serif text-gold tracking-widest mb-4">{site.name}</h3>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="relative w-10 h-10 shrink-0">
+                <Image
+                  src="/logo.png"
+                  alt="Lounge Antico"
+                  fill
+                  className="object-contain"
+                  style={{ filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(2deg)', mixBlendMode: 'screen' }}
+                />
+              </div>
+              <div>
+                <div className="text-[9px] tracking-[0.4em] text-gold/60 uppercase">Lounge</div>
+                <h3 className="text-xl font-serif text-gold tracking-[0.25em]">ANTICO</h3>
+              </div>
+            </div>
             <p className="text-cream/60 text-sm leading-relaxed mb-6">{site.tagline}</p>
             <div className="flex gap-4">
               {['fb', 'ig', 'tw'].map((s) => (

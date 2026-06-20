@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 
 const links = [
@@ -29,8 +30,27 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
-        <Link href="/" className="text-2xl font-serif text-gold tracking-widest">
-          ANTICO
+
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="relative w-12 h-12 shrink-0">
+            <Image
+              src="/logo.png"
+              alt="Lounge Antico"
+              fill
+              className="object-contain"
+              style={{
+                filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(2deg) brightness(1.1)',
+                mixBlendMode: 'screen',
+              }}
+            />
+          </div>
+          <div className="leading-none">
+            <div className="text-[10px] tracking-[0.4em] text-gold/70 uppercase mb-0.5">Lounge</div>
+            <div className="text-xl font-serif text-gold tracking-[0.25em] group-hover:text-gold-light transition-colors duration-300">
+              ANTICO
+            </div>
+          </div>
         </Link>
 
         {/* Desktop nav */}
