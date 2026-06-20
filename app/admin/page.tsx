@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import { LogOut, ExternalLink, LayoutDashboard } from 'lucide-react'
+import { ExternalLink, LayoutDashboard } from 'lucide-react'
 import TabSite from '@/components/admin/TabSite'
 import TabHero from '@/components/admin/TabHero'
 import TabAbout from '@/components/admin/TabAbout'
@@ -35,48 +35,7 @@ const TABS = [
   { id: 'contact', label: 'კონტაქტი' },
 ]
 
-function LoginForm({ onLogin }: { onLogin: (pw: string) => void }) {
-  const [pw, setPw] = useState('')
-  const [error, setError] = useState(false)
-
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    const res = await fetch('/api/admin/auth', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ password: pw }),
-    })
-    if (res.ok) { sessionStorage.setItem('admin_pw', pw); onLogin(pw) }
-    else setError(true)
-  }
-
-  return (
-    <div className="min-h-screen flex items-center justify-center px-6">
-      <div className="card-dark p-10 w-full max-w-sm">
-        <div className="text-center mb-8">
-          <Lock size={32} className="text-gold mx-auto mb-4" />
-          <h1 className="text-2xl font-serif text-cream">Admin Panel</h1>
-          <div className="gold-divider mt-4" />
-        </div>
-        <form onSubmit={submit} className="space-y-4">
-          <input
-            type="password"
-            value={pw}
-            onChange={(e) => { setPw(e.target.value); setError(false) }}
-            placeholder="პაროლი"
-            className="input-field"
-            autoFocus
-          />
-          {error && <p className="text-red-400 text-sm">არასწორი პაროლი</p>}
-          <button type="submit" className="btn-primary w-full text-center">შესვლა</button>
-        </form>
-      </div>
-    </div>
-  )
-}
-
 export default function AdminPage() {
-  const [pw] = useState<string>('nopw')
   const [content, setContent] = useState<Content | null>(null)
   const [menuData, setMenuData] = useState<MenuData | null>(null)
   const [activeTab, setActiveTab] = useState('site')
@@ -91,24 +50,22 @@ export default function AdminPage() {
     setContent(updated)
     const res = await fetch('/api/content', {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json', 'x-admin-password': pw! },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(updated),
     })
     if (!res.ok) throw new Error('save failed')
-  }, [content, pw])
+  }, [content])
 
   const saveMenu = useCallback(async (categories: MenuData['categories']) => {
     const updated = { ...menuData, categories } as MenuData
     setMenuData(updated)
     const res = await fetch('/api/menu', {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json', 'x-admin-password': pw! },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(updated),
     })
     if (!res.ok) throw new Error('save failed')
-  }, [menuData, pw])
-
-  const logout = () => { sessionStorage.removeItem('admin_pw'); setPw(null) }
+  }, [menuData])
 
   if (!content || !menuData) return (
     <div className="min-h-screen flex items-center justify-center">
@@ -118,7 +75,6 @@ export default function AdminPage() {
 
   return (
     <div className="min-h-screen bg-dark">
-      {/* Top bar */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-dark-card border-b border-dark-border h-16 flex items-center px-6 gap-4">
         <LayoutDashboard size={18} className="text-gold" />
         <span className="font-serif text-gold text-lg tracking-wider">Admin Panel</span>
@@ -126,13 +82,9 @@ export default function AdminPage() {
         <a href="/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-cream/40 hover:text-cream/70 text-xs transition-colors">
           <ExternalLink size={13} /> საიტი
         </a>
-        <button onClick={logout} className="flex items-center gap-1.5 text-cream/40 hover:text-red-400 text-xs transition-colors">
-          <LogOut size={13} /> გამოსვლა
-        </button>
       </div>
 
       <div className="flex pt-16 min-h-screen">
-        {/* Sidebar */}
         <aside className="w-48 shrink-0 fixed left-0 top-16 bottom-0 bg-dark-card border-r border-dark-border overflow-y-auto">
           <nav className="p-3 space-y-1">
             {TABS.map((tab) => (
@@ -151,7 +103,6 @@ export default function AdminPage() {
           </nav>
         </aside>
 
-        {/* Content */}
         <main className="flex-1 ml-48 p-8 max-w-3xl">
           <div className="mb-8">
             <h2 className="text-2xl font-serif text-cream">
@@ -160,31 +111,17 @@ export default function AdminPage() {
             <div className="w-10 h-px bg-gold mt-2" />
           </div>
 
-          {activeTab === 'site' && (
-            <TabSite data={content.site} onSave={(site) => saveContent({ site })} />
-          )}
-          {activeTab === 'hero' && (
-            <TabHero data={content.hero} onSave={(hero) => saveContent({ hero })} />
-          )}
+          {activeTab === 'site' && <TabSite data={content.site} onSave={(site) => saveContent({ site })} />}
+          {activeTab === 'hero' && <TabHero data={content.hero} onSave={(hero) => saveContent({ hero })} />}
           {activeTab === 'about' && (
-            <TabAbout
-              about={content.about}
-              cta={content.cta}
-              onSave={(about, cta) => saveContent({ about, cta })}
-            />
+            <TabAbout about={content.about} cta={content.cta} onSave={(about, cta) => saveContent({ about, cta })} />
           )}
-          {activeTab === 'gallery' && (
-            <TabGallery data={content.gallery} onSave={(gallery) => saveContent({ gallery })} />
-          )}
-          {activeTab === 'menu' && (
-            <TabMenu data={menuData.categories} onSave={saveMenu} />
-          )}
+          {activeTab === 'gallery' && <TabGallery data={content.gallery} onSave={(gallery) => saveContent({ gallery })} />}
+          {activeTab === 'menu' && <TabMenu data={menuData.categories} onSave={saveMenu} />}
           {activeTab === 'testimonials' && (
             <TabTestimonials data={content.testimonials} onSave={(testimonials) => saveContent({ testimonials })} />
           )}
-          {activeTab === 'contact' && (
-            <TabContact data={content.contact} onSave={(contact) => saveContent({ contact })} />
-          )}
+          {activeTab === 'contact' && <TabContact data={content.contact} onSave={(contact) => saveContent({ contact })} />}
         </main>
       </div>
     </div>
