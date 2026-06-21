@@ -5,7 +5,10 @@
     "gallery": "Галерея",
     "reservation": "Бронирование",
     "contact": "Контакты",
-    "bookTable": "Забронировать стол"
+    "bookTable": "Забронировать стол",
+    "login": "Войти",
+    "account": "Профиль",
+    "logout": "Выйти"
   },
   "home": {
     "heroBadge": "— Тбилиси, Грузия —",
@@ -96,5 +99,40 @@
   },
   "footer": {
     "navTitle": "Навигация"
+  },
+  "auth": {
+    "loginBadge": "Lounge Antico",
+    "loginTitle": "Вход",
+    "registerBadge": "Lounge Antico",
+    "registerTitle": "Регистрация",
+    "email": "Электронная почта",
+    "password": "Пароль",
+    "name": "Имя и фамилия",
+    "phone": "Номер телефона",
+    "loginBtn": "Войти",
+    "registerBtn": "Зарегистрироваться",
+    "loginError": "Неверный email или пароль.",
+    "registerError": "Регистрация не удалась. Попробуйте другой email.",
+    "noAccount": "Нет аккаунта?",
+    "registerLink": "Зарегистрироваться",
+    "alreadyHaveAccount": "Уже есть аккаунт?",
+    "loginLink": "Войти",
+    "loading": "Загрузка..."
+  },
+  "account": {
+    "badge": "Lounge Antico",
+    "title": "Мой профиль",
+    "loading": "Загрузка...",
+    "noName": "Гость",
+    "discount": "Скидка",
+    "myReservations": "Мои бронирования",
+    "noReservations": "Нет бронирований. Забронируйте стол!",
+    "date": "Дата",
+    "time": "Время",
+    "guests": "Гости",
+    "pending": "Ожидание",
+    "confirmed": "Подтверждено",
+    "cancelled": "Отменено",
+    "logout": "Выйти"
   }
 }

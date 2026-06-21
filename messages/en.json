@@ -5,7 +5,10 @@
     "gallery": "Gallery",
     "reservation": "Reservation",
     "contact": "Contact",
-    "bookTable": "Book a Table"
+    "bookTable": "Book a Table",
+    "login": "Login",
+    "account": "Account",
+    "logout": "Logout"
   },
   "home": {
     "heroBadge": "— Tbilisi, Georgia —",
@@ -96,5 +99,40 @@
   },
   "footer": {
     "navTitle": "Navigation"
+  },
+  "auth": {
+    "loginBadge": "Lounge Antico",
+    "loginTitle": "Sign In",
+    "registerBadge": "Lounge Antico",
+    "registerTitle": "Create Account",
+    "email": "Email Address",
+    "password": "Password",
+    "name": "Full Name",
+    "phone": "Phone Number",
+    "loginBtn": "Sign In",
+    "registerBtn": "Create Account",
+    "loginError": "Invalid email or password.",
+    "registerError": "Registration failed. Try a different email.",
+    "noAccount": "Don't have an account?",
+    "registerLink": "Sign up",
+    "alreadyHaveAccount": "Already have an account?",
+    "loginLink": "Sign in",
+    "loading": "Loading..."
+  },
+  "account": {
+    "badge": "Lounge Antico",
+    "title": "My Account",
+    "loading": "Loading...",
+    "noName": "Guest",
+    "discount": "Discount",
+    "myReservations": "My Reservations",
+    "noReservations": "No reservations yet. Book a table!",
+    "date": "Date",
+    "time": "Time",
+    "guests": "Guests",
+    "pending": "Pending",
+    "confirmed": "Confirmed",
+    "cancelled": "Cancelled",
+    "logout": "Log Out"
   }
 }

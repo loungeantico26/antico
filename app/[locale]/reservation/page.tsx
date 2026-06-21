@@ -1,8 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Calendar, Clock, Users, User, Phone, Mail, MessageSquare, CheckCircle } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { supabase } from '@/lib/supabase'
 
 type FormData = {
   name: string
@@ -26,6 +27,26 @@ export default function ReservationPage() {
   })
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
+  const [userId, setUserId] = useState<string | null>(null)
+
+  useEffect(() => {
+    supabase.auth.getUser().then(({ data: { user } }) => {
+      if (user) {
+        setUserId(user.id)
+        supabase.from('profiles').select('name, email, phone').eq('id', user.id).single()
+          .then(({ data: profile }) => {
+            if (profile) {
+              setForm((prev) => ({
+                ...prev,
+                name: profile.name || prev.name,
+                email: profile.email || prev.email,
+                phone: profile.phone || prev.phone,
+              }))
+            }
+          })
+      }
+    })
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -37,28 +58,21 @@ export default function ReservationPage() {
     setErrorMsg('')
 
     try {
-      const res = await fetch('https://formsubmit.co/ajax/reservations@antico.ge', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          _subject: `ჯავშანი — ${form.name} — ${form.date} ${form.time}`,
-          სახელი: form.name,
-          ტელეფონი: form.phone,
-          'ელ.ფოსტა': form.email,
-          თარიღი: form.date,
-          დრო: form.time,
-          სტუმრები: form.guests,
-          შენიშვნა: form.message,
-          _template: 'table',
-        }),
+      const { error } = await supabase.from('reservations').insert({
+        user_id: userId,
+        name: form.name,
+        phone: form.phone,
+        email: form.email,
+        date: form.date,
+        time: form.time,
+        guests: parseInt(form.guests),
+        message: form.message,
+        status: 'pending',
       })
 
-      if (res.ok) {
-        setStatus('success')
-      } else {
-        setErrorMsg(t('connectionError'))
-        setStatus('error')
-      }
+      if (error) throw error
+
+      setStatus('success')
     } catch {
       setErrorMsg(t('connectionError'))
       setStatus('error')
@@ -93,7 +107,10 @@ export default function ReservationPage() {
             </div>
           </div>
           <button
-            onClick={() => { setStatus('idle'); setForm({ name: '', phone: '', email: '', date: '', time: '', guests: '2', message: '' }) }}
+            onClick={() => {
+              setStatus('idle')
+              setForm((prev) => ({ ...prev, date: '', time: '', guests: '2', message: '' }))
+            }}
             className="btn-outline"
           >
             {t('newReservation')}
@@ -158,7 +175,7 @@ export default function ReservationPage() {
                   <Users size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-gold/40" />
                   <select name="guests" value={form.guests} onChange={handleChange}
                     className="input-field pl-11 bg-dark-card">
-                    {[1,2,3,4,5,6,7,8,9,10].map((n) => (
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
                       <option key={n} value={String(n)}>{n} {t('guestSuffix')}</option>
                     ))}
                   </select>

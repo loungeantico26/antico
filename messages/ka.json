@@ -5,7 +5,10 @@
     "gallery": "გალერეა",
     "reservation": "ჯავშანი",
     "contact": "კონტაქტი",
-    "bookTable": "მაგიდის ჯავშანი"
+    "bookTable": "მაგიდის ჯავშანი",
+    "login": "შესვლა",
+    "account": "პროფილი",
+    "logout": "გასვლა"
   },
   "home": {
     "heroBadge": "— თბილისი, საქართველო —",
@@ -96,5 +99,40 @@
   },
   "footer": {
     "navTitle": "ნავიგაცია"
+  },
+  "auth": {
+    "loginBadge": "Lounge Antico",
+    "loginTitle": "შესვლა",
+    "registerBadge": "Lounge Antico",
+    "registerTitle": "რეგისტრაცია",
+    "email": "ელ. ფოსტა",
+    "password": "პაროლი",
+    "name": "სახელი, გვარი",
+    "phone": "ტელეფონი",
+    "loginBtn": "შესვლა",
+    "registerBtn": "რეგისტრაცია",
+    "loginError": "ელ. ფოსტა ან პაროლი არასწორია.",
+    "registerError": "რეგისტრაცია ვერ მოხერხდა. სცადეთ სხვა ელ. ფოსტა.",
+    "noAccount": "ანგარიში არ გაქვთ?",
+    "registerLink": "დარეგისტრირდით",
+    "alreadyHaveAccount": "უკვე გაქვთ ანგარიში?",
+    "loginLink": "შედით",
+    "loading": "მიმდინარეობს..."
+  },
+  "account": {
+    "badge": "Lounge Antico",
+    "title": "ჩემი პროფილი",
+    "loading": "იტვირთება...",
+    "noName": "სტუმარი",
+    "discount": "ფასდაკლება",
+    "myReservations": "ჩემი ჯავშნები",
+    "noReservations": "ჯავშნები ჯერ არ გაქვთ. დაჯავშნეთ მაგიდა!",
+    "date": "თარიღი",
+    "time": "დრო",
+    "guests": "სტუმრები",
+    "pending": "მოლოდინში",
+    "confirmed": "დადასტურებული",
+    "cancelled": "გაუქმებული",
+    "logout": "გასვლა"
   }
 }
