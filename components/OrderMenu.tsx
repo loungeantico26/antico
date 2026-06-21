@@ -106,6 +106,7 @@ export default function OrderMenu({ cart, onCartChange, totalLabel, emptyLabel }
         {categories.map((cat) => (
           <button
             key={cat.id}
+            type="button"
             onClick={() => setActiveCategory(cat.id)}
             className={`shrink-0 px-4 py-1.5 text-xs tracking-wider border transition-colors ${
               activeCategory === cat.id
