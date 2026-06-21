@@ -1,0 +1,175 @@
+{
+  "categories": [
+    {
+      "id": "starters",
+      "name": "სტარტერები",
+      "nameIt": "Antipasti",
+      "items": [
+        {
+          "id": "s1",
+          "name": "ბრუსკეტა",
+          "nameIt": "Bruschetta",
+          "description": "ახალი პომიდვრით, ბაზილიკით და ზეითუნის ზეთით",
+          "price": 14,
+          "badge": null
+        },
+        {
+          "id": "s2",
+          "name": "კალამარი",
+          "nameIt": "Calamari Fritti",
+          "description": "მოხარშული კალმარი ლიმონის სოუსით",
+          "price": 22,
+          "badge": "popular"
+        },
+        {
+          "id": "s3",
+          "name": "კაპრეზე სალათი",
+          "nameIt": "Insalata Caprese",
+          "description": "ახალი მოცარელა, პომიდორი, ბაზილიკი",
+          "price": 18,
+          "badge": null
+        },
+        {
+          "id": "s4",
+          "name": "ოქტოპუსი",
+          "nameIt": "Polpo alla Griglia",
+          "description": "გრილზე გამომცხვარი ოქტოპუსი, ოლივი და კაპარი",
+          "price": 32,
+          "badge": "chef"
+        }
+      ]
+    },
+    {
+      "id": "pasta",
+      "name": "პასტა",
+      "nameIt": "Pasta",
+      "items": [
+        {
+          "id": "p1",
+          "name": "კარბონარა",
+          "nameIt": "Spaghetti Carbonara",
+          "description": "სპაგეტი, გუანჩალე, ყველი პეკორინო, კვერცხი",
+          "price": 24,
+          "badge": "popular"
+        },
+        {
+          "id": "p2",
+          "name": "ტრიუფელის პასტა",
+          "nameIt": "Tagliolini al Tartufo",
+          "description": "ახალი ტრიუფელი, კარაქი, პარმეზანი",
+          "price": 48,
+          "badge": "chef"
+        },
+        {
+          "id": "p3",
+          "name": "ბოლონეზე",
+          "nameIt": "Tagliatelle Bolognese",
+          "description": "ხელნაკეთი ტაყლიატელი, ნელ-ნელა მომზადებული ხორცის სოუსი",
+          "price": 26,
+          "badge": null
+        },
+        {
+          "id": "p4",
+          "name": "ლინგვინი ზღვის პროდუქტებით",
+          "nameIt": "Linguine ai Frutti di Mare",
+          "description": "კრევეტი, ასარი, კვეროსა, ამარილო სოუსი",
+          "price": 38,
+          "badge": null
+        }
+      ]
+    },
+    {
+      "id": "mains",
+      "name": "მთავარი კერძები",
+      "nameIt": "Secondi",
+      "items": [
+        {
+          "id": "m1",
+          "name": "ფილე მინიონი",
+          "nameIt": "Filetto al Barolo",
+          "description": "ბარელოს ღვინის სოუსით, კარტოფილის პიურე",
+          "price": 65,
+          "badge": "chef"
+        },
+        {
+          "id": "m2",
+          "name": "ზღვის ბასი",
+          "nameIt": "Branzino al Forno",
+          "description": "ოვენში გამომცხვარი, ბოსტნეულით",
+          "price": 52,
+          "badge": null
+        },
+        {
+          "id": "m3",
+          "name": "ვეალის კოტლეტი",
+          "nameIt": "Cotoletta alla Milanese",
+          "description": "მილანური სტილი, ლიმონი, ჟინი",
+          "price": 44,
+          "badge": "popular"
+        }
+      ]
+    },
+    {
+      "id": "desserts",
+      "name": "დესერტები",
+      "nameIt": "Dolci",
+      "items": [
+        {
+          "id": "d1",
+          "name": "ტირამისუ",
+          "nameIt": "Tiramisù",
+          "description": "კლასიკური ტირამისუ, მასკარპონე, ესპრესო",
+          "price": 16,
+          "badge": "popular"
+        },
+        {
+          "id": "d2",
+          "name": "პანა კოტა",
+          "nameIt": "Panna Cotta",
+          "description": "ვანილი, წითელი კენკრის სოუსი",
+          "price": 14,
+          "badge": null
+        },
+        {
+          "id": "d3",
+          "name": "კანოლი",
+          "nameIt": "Cannolo Siciliano",
+          "description": "სიცილიური კანოლი, რიკოტა, ფისტა",
+          "price": 15,
+          "badge": null
+        }
+      ]
+    },
+    {
+      "id": "drinks",
+      "name": "სასმელები",
+      "nameIt": "Bevande",
+      "items": [
+        {
+          "id": "dr1",
+          "name": "იტალიური ღვინოების სელექცია",
+          "nameIt": "Vini Italiani",
+          "description": "ბარელო, ბრუნელო, ამარონე — კვირის სელექცია",
+          "price": 18,
+          "badge": null
+        },
+        {
+          "id": "dr2",
+          "name": "ჰომემეიდ ლიმონადი",
+          "nameIt": "Limonata della Casa",
+          "description": "ახალი ლიმონი, მინა, ბაზილიკი",
+          "price": 8,
+          "badge": null
+        },
+        {
+          "id": "dr3",
+          "name": "ესპრესო",
+          "nameIt": "Espresso",
+          "description": "იტალიური ნაზავი",
+          "price": 5,
+          "badge": null
+        }
+      ]
+    }
+  ]
+}

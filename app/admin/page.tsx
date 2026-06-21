@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import { ExternalLink, LayoutDashboard } from 'lucide-react'
+import { ExternalLink, LayoutDashboard, AlertCircle } from 'lucide-react'
 import TabSite from '@/components/admin/TabSite'
 import TabHero from '@/components/admin/TabHero'
 import TabAbout from '@/components/admin/TabAbout'
@@ -41,30 +41,20 @@ export default function AdminPage() {
   const [activeTab, setActiveTab] = useState('site')
 
   useEffect(() => {
-    fetch('/api/content').then((r) => r.json()).then(setContent)
-    fetch('/api/menu').then((r) => r.json()).then(setMenuData)
+    fetch('/data/content.json').then((r) => r.json()).then(setContent).catch(console.error)
+    fetch('/data/menu.json').then((r) => r.json()).then(setMenuData).catch(console.error)
   }, [])
 
   const saveContent = useCallback(async (patch: Partial<Content>) => {
+    alert('ცვლილებების შესანახად სერვერი საჭიროა.\nGitHub-ზე data/content.json ფაილი შეცვალეთ ხელით.')
     const updated = { ...content, ...patch } as Content
     setContent(updated)
-    const res = await fetch('/api/content', {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(updated),
-    })
-    if (!res.ok) throw new Error('save failed')
   }, [content])
 
   const saveMenu = useCallback(async (categories: MenuData['categories']) => {
+    alert('ცვლილებების შესანახად სერვერი საჭიროა.\nGitHub-ზე data/menu.json ფაილი შეცვალეთ ხელით.')
     const updated = { ...menuData, categories } as MenuData
     setMenuData(updated)
-    const res = await fetch('/api/menu', {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(updated),
-    })
-    if (!res.ok) throw new Error('save failed')
   }, [menuData])
 
   if (!content || !menuData) return (
@@ -79,13 +69,19 @@ export default function AdminPage() {
         <LayoutDashboard size={18} className="text-gold" />
         <span className="font-serif text-gold text-lg tracking-wider">Admin Panel</span>
         <div className="flex-1" />
-        <a href="/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-cream/40 hover:text-cream/70 text-xs transition-colors">
+        <a href="/ka" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-cream/40 hover:text-cream/70 text-xs transition-colors">
           <ExternalLink size={13} /> საიტი
         </a>
       </div>
 
-      <div className="flex pt-16 min-h-screen">
-        <aside className="w-48 shrink-0 fixed left-0 top-16 bottom-0 bg-dark-card border-r border-dark-border overflow-y-auto">
+      {/* Server required banner */}
+      <div className="fixed top-16 left-0 right-0 z-40 bg-gold/10 border-b border-gold/30 px-6 py-2 flex items-center gap-2">
+        <AlertCircle size={14} className="text-gold shrink-0" />
+        <p className="text-gold/80 text-xs">სერვერის გარეშე ცვლილებები არ ინახება. კონტენტის შეცვლა: GitHub → data/content.json</p>
+      </div>
+
+      <div className="flex pt-28 min-h-screen">
+        <aside className="w-48 shrink-0 fixed left-0 top-28 bottom-0 bg-dark-card border-r border-dark-border overflow-y-auto">
           <nav className="p-3 space-y-1">
             {TABS.map((tab) => (
               <button

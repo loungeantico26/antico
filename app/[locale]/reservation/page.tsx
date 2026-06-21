@@ -37,17 +37,26 @@ export default function ReservationPage() {
     setErrorMsg('')
 
     try {
-      const res = await fetch('/api/reservation', {
+      const res = await fetch('https://formsubmit.co/ajax/reservations@antico.ge', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: `ჯავშანი — ${form.name} — ${form.date} ${form.time}`,
+          სახელი: form.name,
+          ტელეფონი: form.phone,
+          'ელ.ფოსტა': form.email,
+          თარიღი: form.date,
+          დრო: form.time,
+          სტუმრები: form.guests,
+          შენიშვნა: form.message,
+          _template: 'table',
+        }),
       })
 
       if (res.ok) {
         setStatus('success')
       } else {
-        const data = await res.json()
-        setErrorMsg(data.error || 'Error')
+        setErrorMsg(t('connectionError'))
         setStatus('error')
       }
     } catch {

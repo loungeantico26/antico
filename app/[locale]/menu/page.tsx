@@ -1,5 +1,6 @@
 import { Star } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { setRequestLocale } from 'next-intl/server'
 import menuData from '@/data/menu.json'
 
 type MenuItem = {
@@ -45,7 +46,8 @@ function MenuItemCard({ item, popularLabel, chefLabel }: { item: MenuItem; popul
   )
 }
 
-export default function MenuPage() {
+export default function MenuPage({ params: { locale } }: { params: { locale: string } }) {
+  setRequestLocale(locale)
   const t = useTranslations('menu')
   const categories = menuData.categories as Category[]
 

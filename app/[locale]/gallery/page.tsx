@@ -1,9 +1,11 @@
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
+import { setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import content from '@/data/content.json'
 
-export default function GalleryPage() {
+export default function GalleryPage({ params: { locale } }: { params: { locale: string } }) {
+  setRequestLocale(locale)
   const t = useTranslations('gallery')
   const photos = content.gallery
 

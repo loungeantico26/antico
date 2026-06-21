@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import NextLink from 'next/link'
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
@@ -84,7 +85,7 @@ export default function Footer() {
 
         <div className="border-t border-dark-border mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-cream/30 text-xs">{site.footerText}</p>
-          <Link href="/admin" className="text-cream/20 hover:text-cream/40 text-xs transition-colors">Admin</Link>
+          <NextLink href="/admin" className="text-cream/20 hover:text-cream/40 text-xs transition-colors">Admin</NextLink>
         </div>
       </div>
     </footer>

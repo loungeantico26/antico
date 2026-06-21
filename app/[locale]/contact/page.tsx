@@ -1,8 +1,10 @@
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { setRequestLocale } from 'next-intl/server'
 import content from '@/data/content.json'
 
-export default function ContactPage() {
+export default function ContactPage({ params: { locale } }: { params: { locale: string } }) {
+  setRequestLocale(locale)
   const t = useTranslations('contact')
   const c = content.contact
 

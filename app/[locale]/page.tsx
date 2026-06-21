@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { ChevronDown, Star } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import content from '@/data/content.json'
 
@@ -11,7 +12,8 @@ const features = [
   { icon: '📍', keys: ['feature4Title', 'feature4Desc'] as const },
 ]
 
-export default function Home() {
+export default function Home({ params: { locale } }: { params: { locale: string } }) {
+  setRequestLocale(locale)
   const t = useTranslations('home')
   const { hero, about, cta, testimonials } = content
 
@@ -112,7 +114,7 @@ export default function Home() {
                     <Star key={i} size={16} className="text-gold fill-gold" />
                   ))}
                 </div>
-                <p className="text-cream/70 italic mb-6 leading-relaxed">"{tt.text}"</p>
+                <p className="text-cream/70 italic mb-6 leading-relaxed">&quot;{tt.text}&quot;</p>
                 <div className="text-gold font-serif">{tt.name}</div>
               </div>
             ))}
