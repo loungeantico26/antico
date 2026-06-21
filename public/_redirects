@@ -3,3 +3,6 @@
 /gallery /ka/gallery 302
 /reservation /ka/reservation 302
 /contact /ka/contact 302
+/account /ka/account 302
+/auth/login /ka/auth/login 302
+/auth/register /ka/auth/register 302
