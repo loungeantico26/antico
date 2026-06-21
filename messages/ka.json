@@ -85,7 +85,22 @@
     "timeLabel": "დრო",
     "guestsLabel": "სტუმრები",
     "personSuffix": "პირი",
-    "connectionError": "კავშირის პრობლემა. სცადეთ მოგვიანებით."
+    "connectionError": "კავშირის პრობლემა. სცადეთ მოგვიანებით.",
+    "dineIn": "რესტორანში",
+    "dineInSub": "მაგიდის ჯავშანი",
+    "takeout": "წასაღებად",
+    "takeoutSub": "კერძის შეკვეთა",
+    "preOrderToggle": "კერძების წინასწარ შეკვეთა (სურვილისამებრ)",
+    "preOrderNote": "კერძები მზად დაგხვდებათ მოსვლისთანავე",
+    "pickupDate": "გატანის თარიღი",
+    "pickupTime": "გატანის დრო",
+    "menuBrowse": "მენიუს არჩევა",
+    "cartEmpty": "კერძი არ დაამატეთ",
+    "total": "სულ",
+    "yourOrder": "თქვენი შეკვეთა",
+    "cartRequired": "წასაღებად შეკვეთისთვის მინიმუმ 1 კერძი გთხოვთ.",
+    "orderSummary": "შეკვეთის სია",
+    "preOrderLabel": "წინასწარი შეკვეთა"
   },
   "contact": {
     "badge": "Lounge Antico",

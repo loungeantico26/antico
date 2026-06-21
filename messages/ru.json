@@ -85,7 +85,22 @@
     "timeLabel": "Время",
     "guestsLabel": "Гости",
     "personSuffix": "человек",
-    "connectionError": "Проблема с соединением. Попробуйте позже."
+    "connectionError": "Проблема с соединением. Попробуйте позже.",
+    "dineIn": "В ресторане",
+    "dineInSub": "Бронь стола",
+    "takeout": "С собой",
+    "takeoutSub": "Заказ навынос",
+    "preOrderToggle": "Предзаказ блюд (по желанию)",
+    "preOrderNote": "Блюда будут готовы к вашему приходу",
+    "pickupDate": "Дата получения",
+    "pickupTime": "Время получения",
+    "menuBrowse": "Меню",
+    "cartEmpty": "Блюда не добавлены",
+    "total": "Итого",
+    "yourOrder": "Ваш заказ",
+    "cartRequired": "Добавьте хотя бы 1 блюдо для заказа навынос.",
+    "orderSummary": "Список заказа",
+    "preOrderLabel": "Предзаказ"
   },
   "contact": {
     "badge": "Lounge Antico",

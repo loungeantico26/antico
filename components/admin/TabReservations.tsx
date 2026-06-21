@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
-import { Calendar, Clock, Users, Phone, Mail, CheckCircle, XCircle, RefreshCw } from 'lucide-react'
+import { Calendar, Clock, Users, Phone, Mail, CheckCircle, XCircle, RefreshCw, UtensilsCrossed, Package } from 'lucide-react'
+
+type OrderItem = { id: string; name: string; price: number; quantity: number }
 
 type Reservation = {
   id: string
@@ -15,6 +17,9 @@ type Reservation = {
   message: string
   status: 'pending' | 'confirmed' | 'cancelled'
   created_at: string
+  order_type: 'dine-in' | 'takeout'
+  pre_order_items: OrderItem[]
+  pre_order_total: number
 }
 
 type Filter = 'all' | 'pending' | 'confirmed' | 'cancelled'
@@ -124,8 +129,15 @@ export default function TabReservations() {
                   </div>
                 </div>
               </div>
-              <div className={`text-xs uppercase tracking-widest font-medium ${statusColors[r.status]}`}>
-                {filterLabels[r.status]}
+              <div className="flex items-center gap-2">
+                {r.order_type === 'takeout' && (
+                  <span className="flex items-center gap-1 text-xs border border-cream/20 text-cream/40 px-2 py-0.5">
+                    <Package size={10} /> წასაღებად
+                  </span>
+                )}
+                <div className={`text-xs uppercase tracking-widest font-medium ${statusColors[r.status]}`}>
+                  {filterLabels[r.status]}
+                </div>
               </div>
             </div>
 
@@ -147,6 +159,28 @@ export default function TabReservations() {
                 {new Date(r.created_at).toLocaleDateString('ka-GE')}
               </div>
             </div>
+
+            {/* Pre-ordered items */}
+            {r.pre_order_items && r.pre_order_items.length > 0 && (
+              <div className="border-t border-dark-border/50 pt-3 space-y-1">
+                <div className="flex items-center gap-1.5 text-xs text-gold/60 uppercase tracking-wider mb-2">
+                  {r.order_type === 'takeout'
+                    ? <><Package size={12} /> წასაღებად შეკვეთა</>
+                    : <><UtensilsCrossed size={12} /> წინასწარი შეკვეთა</>
+                  }
+                </div>
+                {r.pre_order_items.map((item) => (
+                  <div key={item.id} className="flex justify-between text-xs">
+                    <span className="text-cream/60">{item.name} × {item.quantity}</span>
+                    <span className="text-gold">₾{item.price * item.quantity}</span>
+                  </div>
+                ))}
+                <div className="flex justify-between text-xs font-medium pt-1 border-t border-dark-border/30">
+                  <span className="text-cream/50">სულ</span>
+                  <span className="text-gold font-serif">₾{r.pre_order_total}</span>
+                </div>
+              </div>
+            )}
 
             {r.message && (
               <p className="text-cream/40 text-xs border-t border-dark-border/50 pt-2 italic">

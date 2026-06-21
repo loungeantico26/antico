@@ -85,7 +85,22 @@
     "timeLabel": "Time",
     "guestsLabel": "Guests",
     "personSuffix": "persons",
-    "connectionError": "Connection problem. Please try again later."
+    "connectionError": "Connection problem. Please try again later.",
+    "dineIn": "Dine In",
+    "dineInSub": "Table Reservation",
+    "takeout": "Takeout",
+    "takeoutSub": "Order to go",
+    "preOrderToggle": "Pre-order food (optional)",
+    "preOrderNote": "Your food will be ready when you arrive",
+    "pickupDate": "Pickup Date",
+    "pickupTime": "Pickup Time",
+    "menuBrowse": "Browse Menu",
+    "cartEmpty": "No items added",
+    "total": "Total",
+    "yourOrder": "Your Order",
+    "cartRequired": "Please add at least 1 item for takeout.",
+    "orderSummary": "Order Summary",
+    "preOrderLabel": "Pre-order"
   },
   "contact": {
     "badge": "Lounge Antico",
