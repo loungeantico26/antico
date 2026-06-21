@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Star } from 'lucide-react'
+import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { supabase } from '@/lib/supabase'
 import menuData from '@/data/menu.json'
@@ -13,6 +14,7 @@ type MenuItem = {
   description: string
   price: number
   badge: string | null
+  image_url?: string
 }
 
 type Category = {
@@ -29,8 +31,13 @@ function MenuItemCard({ item, popularLabel, chefLabel }: { item: MenuItem; popul
   }
 
   return (
-    <div className="flex justify-between items-start gap-4 py-6 border-b border-dark-border/50 group">
-      <div className="flex-1">
+    <div className="flex items-start gap-5 py-6 border-b border-dark-border/50 group">
+      {item.image_url && (
+        <div className="relative w-24 h-20 shrink-0 overflow-hidden">
+          <Image src={item.image_url} alt={item.name} fill className="object-cover" />
+        </div>
+      )}
+      <div className="flex-1 min-w-0">
         <div className="flex items-center gap-3 mb-1">
           <h3 className="font-serif text-cream text-lg group-hover:text-gold transition-colors duration-200">
             {item.name}
@@ -57,24 +64,25 @@ export default function MenuContent() {
     async function loadFromSupabase() {
       const { data: cats } = await supabase
         .from('menu_categories')
-        .select('id, name, name_it, sort_order, menu_items(id, name, name_it, description, price, badge, sort_order)')
+        .select('id, name, name_it, sort_order, menu_items(id, name, name_it, description, price, badge, image_url, sort_order)')
         .order('sort_order')
 
       if (cats && cats.length > 0) {
         setCategories(
-          cats.map((cat: { id: string; name: string; name_it: string; menu_items: { id: string; name: string; name_it: string; description: string; price: number; badge: string | null; sort_order: number }[] }) => ({
+          cats.map((cat: { id: string; name: string; name_it: string; menu_items: { id: string; name: string; name_it: string; description: string; price: number; badge: string | null; image_url?: string; sort_order: number }[] }) => ({
             id: cat.id,
             name: cat.name,
             nameIt: cat.name_it,
             items: (cat.menu_items || [])
               .sort((a: { sort_order: number }, b: { sort_order: number }) => a.sort_order - b.sort_order)
-              .map((item: { id: string; name: string; name_it: string; description: string; price: number; badge: string | null }) => ({
+              .map((item: { id: string; name: string; name_it: string; description: string; price: number; badge: string | null; image_url?: string }) => ({
                 id: item.id,
                 name: item.name,
                 nameIt: item.name_it,
                 description: item.description,
                 price: item.price,
                 badge: item.badge,
+                image_url: item.image_url,
               })),
           }))
         )

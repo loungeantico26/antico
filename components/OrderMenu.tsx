@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Plus, Minus, ShoppingBag } from 'lucide-react'
+import Image from 'next/image'
 import { supabase } from '@/lib/supabase'
 import menuData from '@/data/menu.json'
 
@@ -20,6 +21,7 @@ type MenuItem = {
   description: string
   price: number
   badge: string | null
+  image_url?: string
 }
 
 type Category = {
@@ -46,13 +48,13 @@ export default function OrderMenu({ cart, onCartChange, totalLabel, emptyLabel }
     async function load() {
       const { data } = await supabase
         .from('menu_categories')
-        .select('id, name, name_it, sort_order, menu_items(id, name, name_it, description, price, badge, sort_order)')
+        .select('id, name, name_it, sort_order, menu_items(id, name, name_it, description, price, badge, image_url, sort_order)')
         .order('sort_order')
 
       if (data && data.length > 0) {
         const cats: Category[] = data.map((cat: {
           id: string; name: string; name_it: string
-          menu_items: { id: string; name: string; name_it: string; description: string; price: number; badge: string | null; sort_order: number }[]
+          menu_items: { id: string; name: string; name_it: string; description: string; price: number; badge: string | null; image_url?: string; sort_order: number }[]
         }) => ({
           id: cat.id,
           name: cat.name,
@@ -66,6 +68,7 @@ export default function OrderMenu({ cart, onCartChange, totalLabel, emptyLabel }
               description: item.description,
               price: item.price,
               badge: item.badge,
+              image_url: item.image_url,
             })),
         }))
         setCategories(cats)
@@ -130,6 +133,11 @@ export default function OrderMenu({ cart, onCartChange, totalLabel, emptyLabel }
                 qty > 0 ? 'bg-gold/5' : ''
               }`}
             >
+              {item.image_url && (
+                <div className="relative w-12 h-10 shrink-0 overflow-hidden">
+                  <Image src={item.image_url} alt={item.name} fill className="object-cover" />
+                </div>
+              )}
               <div className="flex-1 min-w-0">
                 <div className="text-cream text-sm font-medium">{item.name}</div>
                 <div className="text-cream/40 text-xs italic">{item.nameIt}</div>

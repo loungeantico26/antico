@@ -25,7 +25,7 @@ type Content = {
 }
 
 type MenuData = {
-  categories: { id: string; name: string; nameIt: string; items: { id: string; name: string; nameIt: string; description: string; price: number; badge: string | null }[] }[]
+  categories: { id: string; name: string; nameIt: string; items: { id: string; name: string; nameIt: string; description: string; price: number; badge: string | null; image_url?: string }[] }[]
 }
 
 type AdminState = 'loading' | 'login' | 'no-access' | 'dashboard'
@@ -69,24 +69,25 @@ async function fetchContent(): Promise<Content> {
 async function fetchMenu(): Promise<MenuData> {
   const { data: cats } = await supabase
     .from('menu_categories')
-    .select('id, name, name_it, sort_order, menu_items(id, name, name_it, description, price, badge, sort_order, category_id)')
+    .select('id, name, name_it, sort_order, menu_items(id, name, name_it, description, price, badge, image_url, sort_order, category_id)')
     .order('sort_order')
 
   if (cats && cats.length > 0) {
     return {
-      categories: cats.map((cat: { id: string; name: string; name_it: string; menu_items: { id: string; name: string; name_it: string; description: string; price: number; badge: string | null; sort_order: number }[] }) => ({
+      categories: cats.map((cat: { id: string; name: string; name_it: string; menu_items: { id: string; name: string; name_it: string; description: string; price: number; badge: string | null; image_url?: string; sort_order: number }[] }) => ({
         id: cat.id,
         name: cat.name,
         nameIt: cat.name_it,
         items: (cat.menu_items || [])
           .sort((a: { sort_order: number }, b: { sort_order: number }) => a.sort_order - b.sort_order)
-          .map((item: { id: string; name: string; name_it: string; description: string; price: number; badge: string | null }) => ({
+          .map((item: { id: string; name: string; name_it: string; description: string; price: number; badge: string | null; image_url?: string }) => ({
             id: item.id,
             name: item.name,
             nameIt: item.name_it,
             description: item.description,
             price: item.price,
             badge: item.badge,
+            image_url: item.image_url,
           })),
       })),
     }
@@ -202,6 +203,7 @@ export default function AdminPage() {
             description: item.description,
             price: item.price,
             badge: item.badge,
+            image_url: item.image_url || null,
             sort_order: i,
           }))
         )
