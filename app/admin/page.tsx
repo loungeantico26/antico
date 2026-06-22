@@ -12,6 +12,8 @@ import TabContact from '@/components/admin/TabContact'
 import TabMenu from '@/components/admin/TabMenu'
 import TabReservations from '@/components/admin/TabReservations'
 import TabUsers from '@/components/admin/TabUsers'
+import TabStats from '@/components/admin/TabStats'
+import TabQR from '@/components/admin/TabQR'
 
 type Content = {
   site: { name: string; tagline: string; footerText: string }
@@ -31,9 +33,11 @@ type MenuData = {
 type AdminState = 'loading' | 'login' | 'no-access' | 'dashboard'
 
 const TABS = [
+  { id: 'stats', label: '📊 სტატისტიკა' },
   { id: 'reservations', label: 'ჯავშნები' },
   { id: 'users', label: 'მომხმარებლები' },
   { id: 'menu', label: 'მენიუ' },
+  { id: 'qr', label: 'QR კოდი' },
   { id: 'testimonials', label: 'შეფასებები' },
   { id: 'gallery', label: 'გალერეა' },
   { id: 'site', label: 'საიტი' },
@@ -103,7 +107,7 @@ export default function AdminPage() {
   const [loginError, setLoginError] = useState('')
   const [loginLoading, setLoginLoading] = useState(false)
   const [userRole, setUserRole] = useState('')
-  const [activeTab, setActiveTab] = useState('reservations')
+  const [activeTab, setActiveTab] = useState('stats')
   const [content, setContent] = useState<Content | null>(null)
   const [menuData, setMenuData] = useState<MenuData | null>(null)
   const [saveMsg, setSaveMsg] = useState('')
@@ -345,8 +349,10 @@ export default function AdminPage() {
             <div className="w-8 h-px bg-gold mt-2" />
           </div>
 
+          {activeTab === 'stats' && <TabStats />}
           {activeTab === 'reservations' && <TabReservations />}
           {activeTab === 'users' && <TabUsers currentUserRole={userRole} />}
+          {activeTab === 'qr' && <TabQR />}
 
           {content && menuData && (
             <>
