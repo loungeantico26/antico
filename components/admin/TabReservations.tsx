@@ -221,9 +221,9 @@ export default function TabReservations() {
                       onClick={() => removeItem(r, item.id)}
                       disabled={removingItem === item.id}
                       title="კერძი არ გვაქვს — წაშლა + ემაილი"
-                      className="text-cream/20 hover:text-red-400 transition-colors disabled:opacity-30 ml-1"
+                      className="text-red-400/60 hover:text-red-400 transition-colors disabled:opacity-30 ml-1 shrink-0"
                     >
-                      <Trash2 size={11} />
+                      <Trash2 size={12} />
                     </button>
                   </div>
                 ))}
