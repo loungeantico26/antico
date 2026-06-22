@@ -1,12 +1,83 @@
+import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { setRequestLocale } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import WhatsAppButton from '@/components/WhatsAppButton'
+import JsonLd from '@/components/JsonLd'
+import { SITE_URL, OG_IMAGE } from '@/lib/seo'
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }))
+}
+
+type LocaleMeta = { title: string; description: string; ogLocale: string }
+
+const localeMeta: Record<string, LocaleMeta> = {
+  ka: {
+    title: 'Lounge Antico — იტალიური რესტორანი თბილისში',
+    description: 'პრემიუმ იტალიური სამზარეულო ქართული სტუმართმოყვარეობით. ჯავშანი, სეზონური მენიუ, ხელნაკეთი პასტა. რუსთაველის გამზ. 12, თბილისი.',
+    ogLocale: 'ka_GE',
+  },
+  en: {
+    title: 'Lounge Antico — Italian Restaurant in Tbilisi, Georgia',
+    description: 'Premium Italian cuisine with Georgian hospitality. Table reservations, seasonal menu, handmade pasta. Rustaveli Ave 12, Tbilisi.',
+    ogLocale: 'en_US',
+  },
+  ru: {
+    title: 'Lounge Antico — Итальянский ресторан в Тбилиси',
+    description: 'Премиальная итальянская кухня с грузинским гостеприимством. Бронирование столов, сезонное меню, паста ручной работы. Проспект Руставели 12, Тбилиси.',
+    ogLocale: 'ru_RU',
+  },
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string }
+}): Promise<Metadata> {
+  const { locale } = params
+  const meta = localeMeta[locale] ?? localeMeta.ka
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    alternates: {
+      canonical: `${SITE_URL}/${locale}`,
+      languages: {
+        ka: `${SITE_URL}/ka`,
+        en: `${SITE_URL}/en`,
+        ru: `${SITE_URL}/ru`,
+        'x-default': `${SITE_URL}/ka`,
+      },
+    },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: `${SITE_URL}/${locale}`,
+      siteName: 'Lounge Antico',
+      locale: meta.ogLocale,
+      alternateLocale: Object.values(localeMeta)
+        .filter((m) => m.ogLocale !== meta.ogLocale)
+        .map((m) => m.ogLocale),
+      type: 'website',
+      images: [
+        {
+          url: OG_IMAGE,
+          width: 1200,
+          height: 630,
+          alt: 'Lounge Antico — Italian Restaurant Tbilisi',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: meta.title,
+      description: meta.description,
+      images: [OG_IMAGE],
+    },
+  }
 }
 
 export default async function LocaleLayout({
@@ -23,6 +94,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body>
+        <JsonLd />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Navbar />
           <main>{children}</main>
