@@ -1,6 +1,6 @@
 'use client'
 
-const WHATSAPP_NUMBER = '995599000000' // შეცვალე შენი ნომრით
+const WHATSAPP_NUMBER = '995591403832'
 
 export default function WhatsAppButton() {
   return (
