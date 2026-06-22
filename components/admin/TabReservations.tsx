@@ -46,6 +46,18 @@ export default function TabReservations() {
 
   useEffect(() => {
     load()
+
+    const channel = supabase
+      .channel('reservations-realtime')
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'reservations' }, (payload) => {
+        setReservations((prev) => [payload.new as Reservation, ...prev])
+      })
+      .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'reservations' }, (payload) => {
+        setReservations((prev) => prev.map((r) => r.id === payload.new.id ? payload.new as Reservation : r))
+      })
+      .subscribe()
+
+    return () => { supabase.removeChannel(channel) }
   }, [])
 
   async function load() {
@@ -73,10 +85,9 @@ export default function TabReservations() {
   }
 
   async function removeItem(reservation: Reservation, itemId: string) {
-    if (!confirm('კერძი წაიშალოს და მომხმარებელს ემაილი გაეგზავნოს?')) return
+    if (!confirm('ნამდვილად გინდა ამ კერძის მოხსნა შეკვეთიდან?')) return
     setRemovingItem(itemId)
 
-    const removedItem = reservation.pre_order_items.find((i) => i.id === itemId)
     const newItems = reservation.pre_order_items.filter((i) => i.id !== itemId)
     const newTotal = newItems.reduce((sum, i) => sum + i.price * i.quantity, 0)
 
@@ -93,23 +104,6 @@ export default function TabReservations() {
             : r
         )
       )
-
-      // მომხმარებელს ემაილი
-      if (reservation.email && removedItem) {
-        await fetch('https://swtsszumgtgmrobxrmtw.supabase.co/functions/v1/notify-reservation', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            type: 'ITEM_REMOVED',
-            record: {
-              ...reservation,
-              pre_order_items: newItems,
-              pre_order_total: newTotal,
-            },
-            removed_item: removedItem,
-          }),
-        })
-      }
     }
     setRemovingItem(null)
   }
