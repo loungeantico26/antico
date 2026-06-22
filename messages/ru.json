@@ -65,6 +65,7 @@
     "personalInfo": "Личная информация",
     "namePlaceholder": "Имя и фамилия",
     "phonePlaceholder": "Номер телефона",
+    "personalIdPlaceholder": "Номер удостоверения личности",
     "emailPlaceholder": "Электронная почта",
     "details": "Детали бронирования",
     "timePlaceholder": "Время...",

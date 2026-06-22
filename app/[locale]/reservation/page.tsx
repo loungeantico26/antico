@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Calendar, Clock, Users, User, Phone, Mail, MessageSquare, CheckCircle, UtensilsCrossed, Package } from 'lucide-react'
+import { Calendar, Clock, Users, User, Phone, Mail, MessageSquare, CheckCircle, UtensilsCrossed, Package, CreditCard } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { supabase } from '@/lib/supabase'
 import OrderMenu, { CartItem } from '@/components/OrderMenu'
@@ -10,6 +10,7 @@ type FormData = {
   name: string
   phone: string
   email: string
+  personal_id: string
   date: string
   time: string
   guests: string
@@ -27,7 +28,7 @@ export default function ReservationPage() {
   const t = useTranslations('reservation')
   const [orderType, setOrderType] = useState<OrderType>('dine-in')
   const [form, setForm] = useState<FormData>({
-    name: '', phone: '', email: '', date: '', time: '', guests: '2', message: '',
+    name: '', phone: '', email: '', personal_id: '', date: '', time: '', guests: '2', message: '',
   })
   const [cart, setCart] = useState<CartItem[]>([])
   const [showPreOrder, setShowPreOrder] = useState(false)
@@ -79,6 +80,7 @@ export default function ReservationPage() {
         email: form.email,
         date: form.date,
         time: form.time,
+        personal_id: form.personal_id,
         guests: orderType === 'dine-in' ? parseInt(form.guests) : 0,
         message: form.message,
         status: 'pending',
@@ -236,6 +238,11 @@ export default function ReservationPage() {
                 <Mail size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-gold/40" />
                 <input type="email" name="email" value={form.email} onChange={handleChange}
                   placeholder={t('emailPlaceholder')} required className="input-field pl-11" />
+              </div>
+              <div className="relative mt-4">
+                <CreditCard size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-gold/40" />
+                <input type="text" name="personal_id" value={form.personal_id} onChange={handleChange}
+                  placeholder={t('personalIdPlaceholder')} maxLength={11} className="input-field pl-11" />
               </div>
             </div>
 

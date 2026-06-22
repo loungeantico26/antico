@@ -11,6 +11,7 @@ type Reservation = {
   name: string
   phone: string
   email: string
+  personal_id: string
   date: string
   time: string
   guests: number
@@ -164,6 +165,11 @@ export default function TabReservations() {
                   <div className="flex items-center gap-1.5 text-xs text-cream/50">
                     <Mail size={12} className="text-gold/40" /> {r.email}
                   </div>
+                  {r.personal_id && (
+                    <div className="flex items-center gap-1.5 text-xs text-cream/50">
+                      <span className="text-gold/40">ID</span> {r.personal_id}
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="flex items-center gap-2">

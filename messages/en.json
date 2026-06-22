@@ -65,6 +65,7 @@
     "personalInfo": "Personal Information",
     "namePlaceholder": "Full Name",
     "phonePlaceholder": "Phone Number",
+    "personalIdPlaceholder": "Personal ID Number",
     "emailPlaceholder": "Email Address",
     "details": "Reservation Details",
     "timePlaceholder": "Time...",
