@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
-import { Calendar, Clock, Users, Phone, Mail, CheckCircle, XCircle, RefreshCw, UtensilsCrossed, Package } from 'lucide-react'
+import { Calendar, Clock, Users, Phone, Mail, CheckCircle, XCircle, RefreshCw, UtensilsCrossed, Package, Trash2 } from 'lucide-react'
 
 type OrderItem = { id: string; name: string; price: number; quantity: number }
 
@@ -42,6 +42,7 @@ export default function TabReservations() {
   const [loading, setLoading] = useState(true)
   const [filter, setFilter] = useState<Filter>('all')
   const [updating, setUpdating] = useState<string | null>(null)
+  const [removingItem, setRemovingItem] = useState<string | null>(null)
 
   useEffect(() => {
     load()
@@ -69,6 +70,48 @@ export default function TabReservations() {
       )
     }
     setUpdating(null)
+  }
+
+  async function removeItem(reservation: Reservation, itemId: string) {
+    if (!confirm('კერძი წაიშალოს და მომხმარებელს ემაილი გაეგზავნოს?')) return
+    setRemovingItem(itemId)
+
+    const removedItem = reservation.pre_order_items.find((i) => i.id === itemId)
+    const newItems = reservation.pre_order_items.filter((i) => i.id !== itemId)
+    const newTotal = newItems.reduce((sum, i) => sum + i.price * i.quantity, 0)
+
+    const { error } = await supabase
+      .from('reservations')
+      .update({ pre_order_items: newItems, pre_order_total: newTotal })
+      .eq('id', reservation.id)
+
+    if (!error) {
+      setReservations((prev) =>
+        prev.map((r) =>
+          r.id === reservation.id
+            ? { ...r, pre_order_items: newItems, pre_order_total: newTotal }
+            : r
+        )
+      )
+
+      // მომხმარებელს ემაილი
+      if (reservation.email && removedItem) {
+        await fetch('https://swtsszumgtgmrobxrmtw.supabase.co/functions/v1/notify-reservation', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: 'ITEM_REMOVED',
+            record: {
+              ...reservation,
+              pre_order_items: newItems,
+              pre_order_total: newTotal,
+            },
+            removed_item: removedItem,
+          }),
+        })
+      }
+    }
+    setRemovingItem(null)
   }
 
   const filtered = filter === 'all' ? reservations : reservations.filter((r) => r.status === filter)
@@ -170,9 +213,18 @@ export default function TabReservations() {
                   }
                 </div>
                 {r.pre_order_items.map((item) => (
-                  <div key={item.id} className="flex justify-between text-xs">
-                    <span className="text-cream/60">{item.name} × {item.quantity}</span>
+                  <div key={item.id} className="flex items-center justify-between text-xs gap-2">
+                    <span className="text-cream/60 flex-1">{item.name} × {item.quantity}</span>
                     <span className="text-gold">₾{item.price * item.quantity}</span>
+                    <button
+                      type="button"
+                      onClick={() => removeItem(r, item.id)}
+                      disabled={removingItem === item.id}
+                      title="კერძი არ გვაქვს — წაშლა + ემაილი"
+                      className="text-cream/20 hover:text-red-400 transition-colors disabled:opacity-30 ml-1"
+                    >
+                      <Trash2 size={11} />
+                    </button>
                   </div>
                 ))}
                 <div className="flex justify-between text-xs font-medium pt-1 border-t border-dark-border/30">
