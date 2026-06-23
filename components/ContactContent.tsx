@@ -29,7 +29,12 @@ export default function ContactContent() {
       .eq('key', 'contact')
       .single()
       .then(({ data }) => {
-        if (data?.value) setC(data.value as ContactData)
+        if (data?.value) {
+          const c = data.value as ContactData
+          if (/^\d{2}\.\d/.test(c.address)) c.address = (content.contact as ContactData).address
+          if (/^\d{2}\.\d/.test(c.footerAddress)) c.footerAddress = (content.contact as ContactData).footerAddress
+          setC(c)
+        }
       })
   }, [])
 

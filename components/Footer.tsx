@@ -29,7 +29,12 @@ export default function Footer() {
       .eq('key', 'contact')
       .single()
       .then(({ data }) => {
-        if (data?.value) setContact(data.value as ContactData)
+        if (data?.value) {
+          const c = data.value as ContactData
+          if (/^\d{2}\.\d/.test(c.footerAddress)) c.footerAddress = contentJson.contact.footerAddress
+          if (/^\d{2}\.\d/.test(c.address)) c.address = contentJson.contact.address
+          setContact(c)
+        }
       })
   }, [])
 
