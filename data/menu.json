@@ -1,174 +1,207 @@
 {
   "categories": [
     {
-      "id": "starters",
-      "name": "სტარტერები",
-      "nameIt": "Antipasti",
+      "id": "a1000000-0000-0000-0000-000000000001",
+      "name": "წვნიანი",
+      "nameIt": "SOUP",
       "items": [
-        {
-          "id": "s1",
-          "name": "ბრუსკეტა",
-          "nameIt": "Bruschetta",
-          "description": "ახალი პომიდვრით, ბაზილიკით და ზეითუნის ზეთით",
-          "price": 14,
-          "badge": null
-        },
-        {
-          "id": "s2",
-          "name": "კალამარი",
-          "nameIt": "Calamari Fritti",
-          "description": "მოხარშული კალმარი ლიმონის სოუსით",
-          "price": 22,
-          "badge": "popular"
-        },
-        {
-          "id": "s3",
-          "name": "კაპრეზე სალათი",
-          "nameIt": "Insalata Caprese",
-          "description": "ახალი მოცარელა, პომიდორი, ბაზილიკი",
-          "price": 18,
-          "badge": null
-        },
-        {
-          "id": "s4",
-          "name": "ოქტოპუსი",
-          "nameIt": "Polpo alla Griglia",
-          "description": "გრილზე გამომცხვარი ოქტოპუსი, ოლივი და კაპარი",
-          "price": 32,
-          "badge": "chef"
-        }
+        { "id": "b1000000-0000-0000-0000-000000000001", "name": "სოკოს კრემ-სუპი", "nameIt": "Mushroom Cream Soup", "description": "სოკო, ნაღები, ხახვი", "price": 18, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000002", "name": "სუპ-ხარჩო", "nameIt": "Kharcho Soup", "description": "საქონლის ხორცი, ბურგური, ხახვი და ნიორი", "price": 23, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000003", "name": "ჩიხირთმა", "nameIt": "Chikhirtma Soup", "description": "ქათმის სუპი, კვერცხი, ფქვილი, მწვანილი და კარაქი", "price": 20, "badge": null }
       ]
     },
     {
-      "id": "pasta",
-      "name": "პასტა",
-      "nameIt": "Pasta",
+      "id": "a1000000-0000-0000-0000-000000000002",
+      "name": "სალათი",
+      "nameIt": "SALAD",
       "items": [
-        {
-          "id": "p1",
-          "name": "კარბონარა",
-          "nameIt": "Spaghetti Carbonara",
-          "description": "სპაგეტი, გუანჩალე, ყველი პეკორინო, კვერცხი",
-          "price": 24,
-          "badge": "popular"
-        },
-        {
-          "id": "p2",
-          "name": "ტრიუფელის პასტა",
-          "nameIt": "Tagliolini al Tartufo",
-          "description": "ახალი ტრიუფელი, კარაქი, პარმეზანი",
-          "price": 48,
-          "badge": "chef"
-        },
-        {
-          "id": "p3",
-          "name": "ბოლონეზე",
-          "nameIt": "Tagliatelle Bolognese",
-          "description": "ხელნაკეთი ტაყლიატელი, ნელ-ნელა მომზადებული ხორცის სოუსი",
-          "price": 26,
-          "badge": null
-        },
-        {
-          "id": "p4",
-          "name": "ლინგვინი ზღვის პროდუქტებით",
-          "nameIt": "Linguine ai Frutti di Mare",
-          "description": "კრევეტი, ასარი, კვეროსა, ამარილო სოუსი",
-          "price": 38,
-          "badge": null
-        }
+        { "id": "b1000000-0000-0000-0000-000000000010", "name": "ვაშლის სალათი", "nameIt": "Apple Salad", "description": "ვაშლი, ბროწეული, შემწვარი ფილე, სტაფილო, სიმინდი, თხილი, ჰოლანდიური ყველი, მაიონეზი", "price": 20, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000011", "name": "ბადრიჯანის სალათი", "nameIt": "Fried Eggplant Sticks", "description": "ჩერი პომიდორი, ბადრიჯანი, სალათის ფურცელი, ბროწეულის სოუსი", "price": 22, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000012", "name": "ქართული სალათი", "nameIt": "Georgian Salad", "description": "კიტრი, პომიდორი, მწვანილი, ხახვი, ნიგოზი", "price": 16, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000013", "name": "ბადრიჯანი ნიგვზით", "nameIt": "Eggplant Wrap", "description": "ბადრიჯანი, ნიგოზი", "price": 15, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000014", "name": "ისპანახი", "nameIt": "Spinach", "description": "ისპანახი", "price": 10, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000015", "name": "ცეზარის სალათი (ქათამი)", "nameIt": "Caesar Salad — Chicken", "description": "ქათამი, აისბერგი, სალათის ფოთოლა, ყველი", "price": 28, "badge": "popular" },
+        { "id": "b1000000-0000-0000-0000-000000000016", "name": "ცეზარის სალათი (კრევეტი)", "nameIt": "Caesar Salad — Shrimp", "description": "კრევეტები, აისბერგი, სალათის ფოთოლები, ყველი", "price": 35, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000017", "name": "ქათმის სალათი", "nameIt": "Chicken Salad", "description": "ქათმის ფილე, სტაფილო, მაიონეზი", "price": 18, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000018", "name": "ბერძნული სალათი", "nameIt": "Greek Salad", "description": "კიტრი, პომიდორი, ბულგარული წიწაკა, ფეტა ყველი, ორეგანო, ხახვი", "price": 18, "badge": null }
       ]
     },
     {
-      "id": "mains",
-      "name": "მთავარი კერძები",
-      "nameIt": "Secondi",
+      "id": "a1000000-0000-0000-0000-000000000003",
+      "name": "სპაგეტი",
+      "nameIt": "SPAGHETTI",
       "items": [
-        {
-          "id": "m1",
-          "name": "ფილე მინიონი",
-          "nameIt": "Filetto al Barolo",
-          "description": "ბარელოს ღვინის სოუსით, კარტოფილის პიურე",
-          "price": 65,
-          "badge": "chef"
-        },
-        {
-          "id": "m2",
-          "name": "ზღვის ბასი",
-          "nameIt": "Branzino al Forno",
-          "description": "ოვენში გამომცხვარი, ბოსტნეულით",
-          "price": 52,
-          "badge": null
-        },
-        {
-          "id": "m3",
-          "name": "ვეალის კოტლეტი",
-          "nameIt": "Cotoletta alla Milanese",
-          "description": "მილანური სტილი, ლიმონი, ჟინი",
-          "price": 44,
-          "badge": "popular"
-        }
+        { "id": "b1000000-0000-0000-0000-000000000020", "name": "სპაგეტი ბოლონეზის სოუსით", "nameIt": "Spaghetti Bolognese", "description": "საქონლის ხორცი, ტომატის სოუსი, პარმეზანი", "price": 22, "badge": "popular" },
+        { "id": "b1000000-0000-0000-0000-000000000021", "name": "სპაგეტი ნეაპოლიტანური სოუსით", "nameIt": "Spaghetti Neapolitan", "description": "ტომატის სოუსი, პარმეზანი", "price": 18, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000022", "name": "სოკოს კრემისებრი სპაგეტი", "nameIt": "Cream & Mushroom Spaghetti", "description": "სოკო, ნაღები, პარმეზანი", "price": 17, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000023", "name": "ყველის დაფა", "nameIt": "Cheese Board", "description": "იმერული, სულგუნი", "price": 15, "badge": null }
       ]
     },
     {
-      "id": "desserts",
-      "name": "დესერტები",
-      "nameIt": "Dolci",
+      "id": "a1000000-0000-0000-0000-000000000004",
+      "name": "თევზი თიხაში",
+      "nameIt": "FISH IN CLAY",
       "items": [
-        {
-          "id": "d1",
-          "name": "ტირამისუ",
-          "nameIt": "Tiramisù",
-          "description": "კლასიკური ტირამისუ, მასკარპონე, ესპრესო",
-          "price": 16,
-          "badge": "popular"
-        },
-        {
-          "id": "d2",
-          "name": "პანა კოტა",
-          "nameIt": "Panna Cotta",
-          "description": "ვანილი, წითელი კენკრის სოუსი",
-          "price": 14,
-          "badge": null
-        },
-        {
-          "id": "d3",
-          "name": "კანოლი",
-          "nameIt": "Cannolo Siciliano",
-          "description": "სიცილიური კანოლი, რიკოტა, ფისტა",
-          "price": 15,
-          "badge": null
-        }
+        { "id": "b1000000-0000-0000-0000-000000000030", "name": "კალმახი", "nameIt": "Trout in Clay", "description": "კალმახი თიხაში, ბოსტნეული", "price": 30, "badge": "chef" },
+        { "id": "b1000000-0000-0000-0000-000000000031", "name": "დორადო", "nameIt": "Dorado in Clay", "description": "დორადო თიხაში, ყველი, ბოსტნეული", "price": 35, "badge": "chef" },
+        { "id": "b1000000-0000-0000-0000-000000000032", "name": "ორაგული", "nameIt": "Salmon", "description": "ორაგული (ქართული), ბრინჯი და ბოსტნეული", "price": 40, "badge": "chef" },
+        { "id": "b1000000-0000-0000-0000-000000000033", "name": "კრევეტი", "nameIt": "Prawn", "description": "კრევეტი", "price": 30, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000034", "name": "კალმარი", "nameIt": "Squid", "description": "კალმარი", "price": 30, "badge": null }
       ]
     },
     {
-      "id": "drinks",
-      "name": "სასმელები",
-      "nameIt": "Bevande",
+      "id": "a1000000-0000-0000-0000-000000000005",
+      "name": "გრილი",
+      "nameIt": "GRILL",
       "items": [
-        {
-          "id": "dr1",
-          "name": "იტალიური ღვინოების სელექცია",
-          "nameIt": "Vini Italiani",
-          "description": "ბარელო, ბრუნელო, ამარონე — კვირის სელექცია",
-          "price": 18,
-          "badge": null
-        },
-        {
-          "id": "dr2",
-          "name": "ჰომემეიდ ლიმონადი",
-          "nameIt": "Limonata della Casa",
-          "description": "ახალი ლიმონი, მინა, ბაზილიკი",
-          "price": 8,
-          "badge": null
-        },
-        {
-          "id": "dr3",
-          "name": "ესპრესო",
-          "nameIt": "Espresso",
-          "description": "იტალიური ნაზავი",
-          "price": 5,
-          "badge": null
-        }
+        { "id": "b1000000-0000-0000-0000-000000000040", "name": "საქონლის ნეკნი გრილზე", "nameIt": "Beef Rib on the Grill", "description": "საქონლის ნეკნი, მწვანე წიწაკა, პომიდორი, წითელი წიწაკა, ბულგური", "price": 45, "badge": "chef" },
+        { "id": "b1000000-0000-0000-0000-000000000041", "name": "ადანა ქაბაბი", "nameIt": "Adana Kebab", "description": "ბატკნის ან საქონლის ფარში, სანელებლები, ბულგური, ხახვი", "price": 45, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000042", "name": "ბოსტნეულის მწვადი", "nameIt": "Vegetable Kebab", "description": "პომიდორი, სოკო, ბადრიჯანი, კარტოფილი, წიწაკა, ხახვი", "price": 15, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000043", "name": "ანტიკო ქაბაბი", "nameIt": "Antico Kebab", "description": "ქათმის ფრთები და ფილე, ხბოს მწვადი, ხბოს ნეკნი, კოფტა, ლულა ქაბაბი, ბულგური", "price": 215, "badge": "chef" },
+        { "id": "b1000000-0000-0000-0000-000000000044", "name": "ჩოქერთმე ქაბაბი", "nameIt": "Coxertime Kebab", "description": "საქონლის ხორცი, კარტოფილი, არაჟანი, ნიორი, კარაქი", "price": 43, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000045", "name": "ალანაზიქი", "nameIt": "Alanazik", "description": "საქონლის ხორცი, ბადრიჯანი, არაჟანი, ნიორი, კარაქი", "price": 43, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000046", "name": "ყაურმა", "nameIt": "Meat Saute", "description": "საქონლის ხორცი, ბადრიჯანი, პომიდორი, წიწაკა, სოკო, ხახვი, კარაქი", "price": 45, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000047", "name": "ოჯახური (ქათამი)", "nameIt": "Odjakhuri — Chicken", "description": "ქათამი, კარტოფილი, ბულგარული წიწაკა, ხახვი", "price": 18, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000048", "name": "ოჯახური (საქონლის)", "nameIt": "Odjakhuri — Beef", "description": "საქონლის ხორცი, კარტოფილი, ბულგარული წიწაკა, ხახვი", "price": 20, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000049", "name": "საქონლის მწვადი", "nameIt": "Beef Barbecue", "description": "ბოსტნეული, პომიდორი, მწვანე ბულგარული წიწაკა", "price": 42, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000050", "name": "ქათამი შამფურზე", "nameIt": "Chicken Skewers", "description": "ბოსტნეული, პომიდორი, მწვანე ბულგარული წიწაკა", "price": 25, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000051", "name": "ქათმის ფრთები", "nameIt": "Chicken Wings", "description": "ბოსტნეული, პომიდორი, მწვანე ბულგარული წიწაკა", "price": 30, "badge": "popular" },
+        { "id": "b1000000-0000-0000-0000-000000000052", "name": "სოკო კეცზე (ყველით)", "nameIt": "Mushrooms on Ketsi — with Cheese", "description": "სოკო, ყველი", "price": 20, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000053", "name": "სოკო კეცზე (ყველის გარეშე)", "nameIt": "Mushrooms on Ketsi — no Cheese", "description": "სოკო", "price": 18, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000054", "name": "კოტლეტი", "nameIt": "Cutlet", "description": "ხორცი, პომიდორი, წითელი და მწვანე ბულგარული წიწაკა", "price": 35, "badge": null }
+      ]
+    },
+    {
+      "id": "a1000000-0000-0000-0000-000000000006",
+      "name": "სენდვიჩი",
+      "nameIt": "SANDWICH",
+      "items": [
+        { "id": "b1000000-0000-0000-0000-000000000060", "name": "სენდვიჩი", "nameIt": "Sandwich", "description": "", "price": 10, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000061", "name": "ბურგერი", "nameIt": "Burger", "description": "", "price": 22, "badge": "popular" },
+        { "id": "b1000000-0000-0000-0000-000000000062", "name": "კარტოფილი ფრი", "nameIt": "French Fries", "description": "", "price": 15, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000063", "name": "მექსიკური კარტოფილი", "nameIt": "Mexican Potato", "description": "", "price": 16, "badge": null }
+      ]
+    },
+    {
+      "id": "a1000000-0000-0000-0000-000000000007",
+      "name": "პიცა",
+      "nameIt": "PIZZA",
+      "items": [
+        { "id": "b1000000-0000-0000-0000-000000000070", "name": "პიცა მარგარიტა", "nameIt": "Pizza Margarita", "description": "ცომი, პომიდვრის სოუსი, მოცარელა, ორეგანო", "price": 25, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000071", "name": "პიცა ოთხი ყველით", "nameIt": "Pizza Four Cheeses", "description": "ჩედარი, გორგონზოლა, პარმეზანი, მოცარელა", "price": 32, "badge": "chef" },
+        { "id": "b1000000-0000-0000-0000-000000000072", "name": "პიცა პეპერონი", "nameIt": "Pepperoni Pizza", "description": "ცომი, პომიდვრის სოუსი, პეპერონის ძეხვი, მოცარელა", "price": 30, "badge": "popular" },
+        { "id": "b1000000-0000-0000-0000-000000000073", "name": "პიცა ბოსტნეულით", "nameIt": "Veggie Pizza", "description": "ცომი, პომიდვრის სოუსი, ბოსტნეული, მოცარელა", "price": 22, "badge": null }
+      ]
+    },
+    {
+      "id": "a1000000-0000-0000-0000-000000000008",
+      "name": "ცომეული",
+      "nameIt": "BREAD",
+      "items": [
+        { "id": "b1000000-0000-0000-0000-000000000080", "name": "აჭარული ხაჭაპური", "nameIt": "Adjarian Khachapuri", "description": "ცომი, ყველი, კვერცხი, კარაქი", "price": 20, "badge": "popular" },
+        { "id": "b1000000-0000-0000-0000-000000000081", "name": "იმერული ხაჭაპური", "nameIt": "Imeretian Khachapuri", "description": "ცომი, ყველი, კარაქი", "price": 22, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000082", "name": "მეგრული ხაჭაპური", "nameIt": "Megrelian Khachapuri", "description": "ცომი, ყველი, სულგუნი, კარაქი", "price": 25, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000083", "name": "ლობიანი", "nameIt": "Lobiani", "description": "ცომი, ლობიო", "price": 18, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000084", "name": "მჭადი", "nameIt": "Mchadi", "description": "სიმინდის ლეფშა", "price": 4, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000085", "name": "ქართული პური", "nameIt": "Georgian Bread", "description": "", "price": 3, "badge": null }
+      ]
+    },
+    {
+      "id": "a1000000-0000-0000-0000-000000000009",
+      "name": "დესერტი",
+      "nameIt": "DESSERT",
+      "items": [
+        { "id": "b1000000-0000-0000-0000-000000000090", "name": "ბაქლავა", "nameIt": "Baklava", "description": "ცომი, ნიგოზი, კარაქი", "price": 5, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000091", "name": "გოგრის დესერტი", "nameIt": "Pumpkin Dessert", "description": "გოგრა, ტახინი, სიროფი", "price": 18, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000092", "name": "ცხელი ხალვა", "nameIt": "Oven Halva", "description": "ხალვა, რძე, ნიგოზი", "price": 22, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000093", "name": "ბრაუნი", "nameIt": "Brownie", "description": "", "price": 20, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000094", "name": "ლავა ქეიქი", "nameIt": "Lava Cake", "description": "", "price": 25, "badge": "chef" }
+      ]
+    },
+    {
+      "id": "a1000000-0000-0000-0000-000000000010",
+      "name": "უალკოჰოლო სასმელი",
+      "nameIt": "SOFT DRINKS",
+      "items": [
+        { "id": "b1000000-0000-0000-0000-000000000100", "name": "ლიმონათი", "nameIt": "Lemonade", "description": "საფერავი, მსხალი, ტარხუნა, ლიმონი, ფეიხოა, ნაღები", "price": 5, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000101", "name": "წყალი", "nameIt": "Water", "description": "", "price": 4, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000102", "name": "ბორჯომი", "nameIt": "Borjomi", "description": "", "price": 5, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000103", "name": "კოკა-კოლა / ფანტა / სპრაიტი", "nameIt": "Coca-Cola / Fanta / Sprite", "description": "", "price": 5, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000104", "name": "ენერგეტიკული სასმელი", "nameIt": "Energy Drink", "description": "", "price": 7, "badge": null }
+      ]
+    },
+    {
+      "id": "a1000000-0000-0000-0000-000000000011",
+      "name": "ყავა",
+      "nameIt": "COFFEE",
+      "items": [
+        { "id": "b1000000-0000-0000-0000-000000000110", "name": "ჩაი", "nameIt": "Tea", "description": "", "price": 5, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000111", "name": "ესპრესო", "nameIt": "Espresso", "description": "", "price": 9, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000112", "name": "კაპუჩინო", "nameIt": "Cappuccino", "description": "", "price": 12, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000113", "name": "ამერიკანო", "nameIt": "Americano", "description": "", "price": 10, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000114", "name": "ლატე", "nameIt": "Latte", "description": "", "price": 12, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000115", "name": "თურქული ყავა", "nameIt": "Turkish Coffee", "description": "", "price": 5, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000116", "name": "ცივი ყავა", "nameIt": "Iced Coffee", "description": "", "price": 12, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000117", "name": "ცივი ყავა ნაყინით", "nameIt": "Iced Coffee with Ice Cream", "description": "", "price": 17, "badge": null }
+      ]
+    },
+    {
+      "id": "a1000000-0000-0000-0000-000000000012",
+      "name": "Starbucks Coffee",
+      "nameIt": "STARBUCKS",
+      "items": [
+        { "id": "b1000000-0000-0000-0000-000000000120", "name": "Blonde Espresso Roast", "nameIt": "Starbucks", "description": "", "price": 5, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000121", "name": "Single Origin Colombia — No6", "nameIt": "Starbucks", "description": "", "price": 12, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000122", "name": "Breakfast Blend — No7", "nameIt": "Starbucks", "description": "", "price": 12, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000123", "name": "House Blend — No7 & No8", "nameIt": "Starbucks", "description": "", "price": 10, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000124", "name": "Verona Ristretto — No10", "nameIt": "Starbucks", "description": "", "price": 12, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000125", "name": "Espresso Roast — No11", "nameIt": "Starbucks", "description": "", "price": 5, "badge": null }
+      ]
+    },
+    {
+      "id": "a1000000-0000-0000-0000-000000000013",
+      "name": "არაყი",
+      "nameIt": "VODKA",
+      "items": [
+        { "id": "b1000000-0000-0000-0000-000000000130", "name": "ჭაჭა რქაწითელი", "nameIt": "Chacha Rkatsiteli", "description": "", "price": 12, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000131", "name": "ჭაჭა საფერავი", "nameIt": "Chacha Saperavi", "description": "", "price": 12, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000132", "name": "სტოლიჩნაია", "nameIt": "Stolichnaya", "description": "", "price": 17, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000133", "name": "აბსოლუტი", "nameIt": "Absolut", "description": "", "price": 20, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000134", "name": "ფინლანდია", "nameIt": "Finlandia", "description": "", "price": 17, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000135", "name": "მალიბუ", "nameIt": "Malibu", "description": "", "price": 17, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000136", "name": "მარტინი", "nameIt": "Martini", "description": "", "price": 17, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000137", "name": "რაკი (ორმაგი)", "nameIt": "Rakhi Double", "description": "", "price": 16, "badge": null }
+      ]
+    },
+    {
+      "id": "a1000000-0000-0000-0000-000000000014",
+      "name": "ვისკი",
+      "nameIt": "WHISKEY",
+      "items": [
+        { "id": "b1000000-0000-0000-0000-000000000140", "name": "სარაჯიშვილი 3★", "nameIt": "Sarajishvili 3*", "description": "", "price": 12, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000141", "name": "სარაჯიშვილი 5★", "nameIt": "Sarajishvili 5*", "description": "", "price": 14, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000142", "name": "სარაჯიშვილი VSOP", "nameIt": "Sarajishvili VSOP", "description": "", "price": 32, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000143", "name": "სარაჯიშვილი VS", "nameIt": "Sarajishvili VS", "description": "", "price": 37, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000144", "name": "ჯეკ დენიელსი", "nameIt": "Jack Daniel's", "description": "", "price": 20, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000145", "name": "ჩივასი 12", "nameIt": "Chivas 12", "description": "", "price": 27, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000146", "name": "ჩივასი 21", "nameIt": "Chivas 21", "description": "", "price": 67, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000147", "name": "ჰენესი", "nameIt": "Hennessy", "description": "", "price": 40, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000148", "name": "ჯეი ენდ ბი", "nameIt": "J&B", "description": "", "price": 20, "badge": null }
+      ]
+    },
+    {
+      "id": "a1000000-0000-0000-0000-000000000015",
+      "name": "ღვინო",
+      "nameIt": "WINES",
+      "items": [
+        { "id": "b1000000-0000-0000-0000-000000000150", "name": "ბადაგონი მაესტრო", "nameIt": "Badagoni Maestro", "description": "", "price": 12, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000151", "name": "ბადაგონი ქისი", "nameIt": "Badagoni Kisi", "description": "", "price": 14, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000152", "name": "მტევინო საფერავი", "nameIt": "Mtevino Saperavi", "description": "", "price": 12, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000153", "name": "მტევინო ქინძმარაული", "nameIt": "Mtevino Kindzmarauli", "description": "", "price": 14, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000154", "name": "მტევინო რქაწითელი", "nameIt": "Mtevino Rkatsiteli", "description": "", "price": 17, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000155", "name": "ქტვ ხვანჭქარა", "nameIt": "KTW Khvanchkara", "description": "", "price": 12, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000156", "name": "გურამიშვილის მარანი ქისი", "nameIt": "Guramishvili's Marani Kisi", "description": "", "price": 12, "badge": null },
+        { "id": "b1000000-0000-0000-0000-000000000157", "name": "გურამიშვილის მარანი დანახარული", "nameIt": "Guramishvili's Marani Danakharuli", "description": "", "price": 17, "badge": null }
       ]
     }
   ]
