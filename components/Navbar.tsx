@@ -39,7 +39,6 @@ export default function Navbar() {
     { href: '/' as const, label: t('home') },
     { href: '/menu' as const, label: t('menu') },
     { href: '/gallery' as const, label: t('gallery') },
-    { href: '/reservation' as const, label: t('reservation') },
     { href: '/contact' as const, label: t('contact') },
   ]
 
@@ -53,16 +52,12 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-12 h-12 shrink-0">
+          <div className="relative w-16 h-16 shrink-0">
             <Image
               src="/logo.png"
               alt="Lounge Antico"
               fill
-              className="object-contain"
-              style={{
-                filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(2deg) brightness(1.1)',
-                mixBlendMode: 'screen',
-              }}
+              className="object-contain drop-shadow-lg"
             />
           </div>
           <div className="leading-none">
