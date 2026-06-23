@@ -58,13 +58,14 @@ export default function HomeContent() {
   }, [])
 
   const { hero, about, features, cta, testimonials } = data
+  const heroBg = hero.backgroundUrl?.includes('unsplash') ? '/og-image.png' : (hero.backgroundUrl || '/og-image.png')
 
   return (
     <>
       {/* Hero */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image src={hero.backgroundUrl} alt="Lounge Antico" fill className="object-cover" priority />
+          <Image src={heroBg} alt="Lounge Antico" fill className="object-cover" priority />
           <div className="absolute inset-0 bg-dark/70" />
         </div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6">

@@ -71,12 +71,17 @@ async function fetchContent(): Promise<Content> {
 }
 
 async function fetchMenu(): Promise<MenuData> {
-  const { data: cats } = await supabase
-    .from('menu_categories')
-    .select('id, name, name_it, sort_order, menu_items(id, name, name_it, description, price, badge, image_url, sort_order, category_id)')
-    .order('sort_order')
+  const [{ data: cats }, jsonMenu] = await Promise.all([
+    supabase
+      .from('menu_categories')
+      .select('id, name, name_it, sort_order, menu_items(id, name, name_it, description, price, badge, image_url, sort_order, category_id)')
+      .order('sort_order'),
+    fetch('/data/menu.json').then((r) => r.json()).catch(() => ({ categories: [] })),
+  ])
 
-  if (cats && cats.length > 0) {
+  const jsonCount: number = (jsonMenu.categories || []).length
+
+  if (cats && cats.length >= jsonCount) {
     return {
       categories: cats.map((cat: { id: string; name: string; name_it: string; menu_items: { id: string; name: string; name_it: string; description: string; price: number; badge: string | null; image_url?: string; sort_order: number }[] }) => ({
         id: cat.id,
@@ -97,7 +102,7 @@ async function fetchMenu(): Promise<MenuData> {
     }
   }
 
-  return fetch('/data/menu.json').then((r) => r.json()).catch(() => ({ categories: [] }))
+  return jsonMenu
 }
 
 export default function AdminPage() {

@@ -5,8 +5,8 @@
     "footerText": "© 2024 Lounge Antico Restaurant. ყველა უფლება დაცულია."
   },
   "hero": {
-    "backgroundUrl": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1920&q=80",
-    "badge": "— თბილისი, საქართველო —",
+    "backgroundUrl": "/og-image.png",
+    "badge": "— შეკვეთილი, საქართველო —",
     "heading": "ANTICO",
     "subheading": "იტალიური სამზარეულოს ხელოვნება, ქართული სტუმართმოყვარეობის სულით",
     "cta1": "მაგიდის ჯავშანი",
@@ -82,14 +82,14 @@
     { "id": "g8", "src": "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", "alt": "ვახშამი" }
   ],
   "contact": {
-    "address": "რუსთაველის გამზ. 12, თბილისი, საქართველო",
-    "phone1": "+995 322 123 456",
-    "phone2": "+995 599 123 456",
-    "email1": "info@antico.ge",
-    "email2": "reservations@antico.ge",
+    "address": "შეკვეთილი (ნატანები), ოზურგეთი, საქართველო",
+    "phone1": "+995 591 40 38 32",
+    "phone2": "",
+    "email1": "lounge.antico26@gmail.com",
+    "email2": "",
     "weekdays": "ორშ–პარ: 12:00–23:00",
     "weekends": "შაბ–კვი: 12:00–00:00",
-    "mapUrl": "https://maps.google.com",
-    "footerAddress": "რუსთაველის გამზ. 12, თბილისი"
+    "mapUrl": "https://www.google.com/maps/place/Lounge+Antico+Restaurant/@41.9594447,41.7731486,17z",
+    "footerAddress": "შეკვეთილი, ოზურგეთი"
   }
 }

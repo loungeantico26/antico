@@ -15,9 +15,9 @@ const config: Config = {
           dark: '#a07840',
         },
         dark: {
-          DEFAULT: '#0f0d0a',
-          card: '#1a1814',
-          border: '#2a2620',
+          DEFAULT: '#070b12',
+          card: '#0d1220',
+          border: '#18243a',
         },
         cream: '#f5f0e8',
       },

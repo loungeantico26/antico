@@ -67,7 +67,7 @@ export default function MenuContent() {
         .select('id, name, name_it, sort_order, menu_items(id, name, name_it, description, price, badge, image_url, sort_order)')
         .order('sort_order')
 
-      if (cats && cats.length > 0) {
+      if (cats && cats.length >= menuData.categories.length) {
         setCategories(
           cats.map((cat: { id: string; name: string; name_it: string; menu_items: { id: string; name: string; name_it: string; description: string; price: number; badge: string | null; image_url?: string; sort_order: number }[] }) => ({
             id: cat.id,
