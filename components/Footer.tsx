@@ -1,14 +1,37 @@
+'use client'
+
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import NextLink from 'next/link'
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
-import content from '@/data/content.json'
+import { supabase } from '@/lib/supabase'
+import contentJson from '@/data/content.json'
+
+type ContactData = {
+  address: string; phone1: string; phone2: string
+  email1: string; email2: string
+  weekdays: string; weekends: string
+  mapUrl: string; footerAddress: string
+}
 
 export default function Footer() {
   const t = useTranslations('nav')
   const tf = useTranslations('footer')
-  const { site, contact } = content
+  const [contact, setContact] = useState<ContactData>(contentJson.contact as ContactData)
+  const site = contentJson.site
+
+  useEffect(() => {
+    supabase
+      .from('site_content')
+      .select('value')
+      .eq('key', 'contact')
+      .single()
+      .then(({ data }) => {
+        if (data?.value) setContact(data.value as ContactData)
+      })
+  }, [])
 
   const navLinks = [
     { href: '/menu' as const, label: t('menu') },
@@ -24,13 +47,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="relative w-10 h-10 shrink-0">
-                <Image
-                  src="/logo.png"
-                  alt="Lounge Antico"
-                  fill
-                  className="object-contain"
-                  style={{ filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(2deg)', mixBlendMode: 'screen' }}
-                />
+                <Image src="/logo.png" alt="Lounge Antico" fill className="object-contain" />
               </div>
               <div>
                 <div className="text-[9px] tracking-[0.4em] text-gold/60 uppercase">Lounge</div>
@@ -51,7 +68,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href={`https://wa.me/995591403832`}
+                href="https://wa.me/995591403832"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 border border-dark-border flex items-center justify-center text-cream/40 hover:border-gold hover:text-gold transition-all duration-200"
