@@ -65,15 +65,28 @@ export default function ContactContent() {
             ))}
           </div>
 
-          <div className="w-full h-80 bg-dark-card border border-dark-border flex items-center justify-center">
-            <div className="text-center">
-              <MapPin size={32} className="text-gold mx-auto mb-3" />
-              <p className="text-cream/40 text-sm">{c.address}</p>
-              <a href={c.mapUrl} target="_blank" rel="noopener noreferrer"
-                className="btn-outline text-xs py-2 px-5 mt-4 inline-block">
-                {t('mapBtn')}
-              </a>
-            </div>
+          <div className="w-full border border-dark-border overflow-hidden" style={{ height: '400px' }}>
+            <iframe
+              src="https://maps.google.com/maps?q=41.9594447,41.7731486&z=16&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) saturate(0.8)' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Lounge Antico Restaurant"
+            />
+          </div>
+          <div className="flex justify-center mt-4">
+            <a
+              href={c.mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline text-xs py-2 px-6 inline-flex items-center gap-2"
+            >
+              <MapPin size={14} />
+              {t('mapBtn')}
+            </a>
           </div>
         </div>
       </section>
