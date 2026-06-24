@@ -48,11 +48,11 @@ export default function Navbar() {
         scrolled ? 'bg-dark/95 backdrop-blur-sm border-b border-dark-border' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-24">
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-16 h-16 shrink-0">
+          <div className="relative w-20 h-20 shrink-0">
             <Image
               src="/logo.png"
               alt="Lounge Antico"

@@ -70,7 +70,7 @@ export default function HomeContent() {
         </div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
           <p className="section-subtitle">{t('heroBadge')}</p>
-          <h1 className="text-6xl md:text-8xl font-serif text-cream mb-6 leading-tight">ANTICO</h1>
+          <h1 className="text-5xl md:text-7xl font-serif text-cream mb-6 leading-tight tracking-widest">LOUNGE ANTICO</h1>
           <div className="gold-divider" />
           <p className="text-cream/80 text-lg md:text-xl max-w-xl mx-auto mb-10 leading-relaxed font-light">
             {t('heroSubheading')}
