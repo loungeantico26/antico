@@ -16,18 +16,18 @@ type LocaleMeta = { title: string; description: string; ogLocale: string }
 
 const localeMeta: Record<string, LocaleMeta> = {
   ka: {
-    title: 'Lounge Antico — იტალიური რესტორანი თბილისში',
-    description: 'პრემიუმ იტალიური სამზარეულო ქართული სტუმართმოყვარეობით. ჯავშანი, სეზონური მენიუ, ხელნაკეთი პასტა. რუსთაველის გამზ. 12, თბილისი.',
+    title: 'Lounge Antico — ქართული და ევროპული სამზარეულო შეკვეთილში',
+    description: '2023 წლიდან — ქართული და ევროპული სამზარეულო შეკვეთილის დენდროლოგიური პარკის შესასვლელში. გარე მაგიდები, ჯავშანი, სეზონური მენიუ.',
     ogLocale: 'ka_GE',
   },
   en: {
-    title: 'Lounge Antico — Italian Restaurant in Tbilisi, Georgia',
-    description: 'Premium Italian cuisine with Georgian hospitality. Table reservations, seasonal menu, handmade pasta. Rustaveli Ave 12, Tbilisi.',
+    title: 'Lounge Antico — Georgian & European Restaurant in Shekvetili',
+    description: 'Since 2023 — Georgian and European cuisine at the entrance of Shekvetili Dendrological Park. Outdoor seating, large parking, table reservations.',
     ogLocale: 'en_US',
   },
   ru: {
-    title: 'Lounge Antico — Итальянский ресторан в Тбилиси',
-    description: 'Премиальная итальянская кухня с грузинским гостеприимством. Бронирование столов, сезонное меню, паста ручной работы. Проспект Руставели 12, Тбилиси.',
+    title: 'Lounge Antico — Грузинская и европейская кухня в Шекветили',
+    description: 'С 2023 года — грузинская и европейская кухня у входа в Дендрологический парк Шекветили. Открытая терраса, большая парковка, бронирование столов.',
     ogLocale: 'ru_RU',
   },
 }
@@ -67,7 +67,7 @@ export async function generateMetadata({
           url: OG_IMAGE,
           width: 1200,
           height: 630,
-          alt: 'Lounge Antico — Italian Restaurant Tbilisi',
+          alt: 'Lounge Antico — Restaurant Shekvetili, Georgia',
         },
       ],
     },

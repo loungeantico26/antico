@@ -6,15 +6,15 @@ import { SITE_URL, OG_IMAGE } from '@/lib/seo'
 const pageMeta: Record<string, { title: string; description: string }> = {
   ka: {
     title: 'კონტაქტი — მისამართი და სამუშაო საათები | Lounge Antico',
-    description: 'Lounge Antico კონტაქტი. მისამართი: რუსთაველის გამზ. 12, თბილისი. ტელ: +995 322 123 456. სამუშაო საათები: ყოველდღე 12:00–23:00.',
+    description: 'Lounge Antico კონტაქტი. მისამართი: შეკვეთილი, ოზურგეთი, საქართველო. ტელ: +995 591 40 38 32. სამუშაო საათები: ყოველდღე 12:00–00:00.',
   },
   en: {
     title: 'Contact — Address & Opening Hours | Lounge Antico',
-    description: 'Lounge Antico contact. Address: Rustaveli Ave 12, Tbilisi. Tel: +995 322 123 456. Opening hours: daily 12:00–23:00.',
+    description: 'Lounge Antico contact. Address: Shekvetili (Natanebi), Ozurgeti, Georgia. Tel: +995 591 40 38 32. Opening hours: daily 12:00–midnight.',
   },
   ru: {
     title: 'Контакты — Адрес и Часы работы | Lounge Antico',
-    description: 'Контакты Lounge Antico. Адрес: просп. Руставели 12, Тбилиси. Тел: +995 322 123 456. Часы работы: ежедневно 12:00–23:00.',
+    description: 'Контакты Lounge Antico. Адрес: Шекветили (Натанеби), Озургети, Грузия. Тел: +995 591 40 38 32. Часы работы: ежедневно 12:00–00:00.',
   },
 }
 

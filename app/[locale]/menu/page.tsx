@@ -5,16 +5,16 @@ import { SITE_URL, OG_IMAGE } from '@/lib/seo'
 
 const pageMeta: Record<string, { title: string; description: string }> = {
   ka: {
-    title: 'მენიუ — იტალიური კერძები | Lounge Antico',
-    description: 'Lounge Antico-ს სრული მენიუ. ხელნაკეთი პასტა, პიცა, ზღვის პროდუქტები, ტრიუფელი, ტირამისუ. სეზონური ინგრედიენტები. ფასები GEL-ში.',
+    title: 'მენიუ — ქართული და ევროპული კერძები | Lounge Antico',
+    description: 'Lounge Antico-ს სრული მენიუ. სუპები, სალათები, გრილი, პიცა, ზღვის პროდუქტები, დესერტები, სასმელები. სეზონური ინგრედიენტები. ფასები ლარში.',
   },
   en: {
-    title: 'Menu — Italian Dishes | Lounge Antico',
-    description: 'Full menu at Lounge Antico Tbilisi. Handmade pasta, pizza, seafood, truffle, tiramisu. Seasonal fresh ingredients. Prices in GEL.',
+    title: 'Menu — Georgian & European Dishes | Lounge Antico',
+    description: 'Full menu at Lounge Antico Shekvetili. Soups, salads, grills, pizza, seafood, desserts, coffee and drinks. Fresh seasonal ingredients. Prices in GEL.',
   },
   ru: {
-    title: 'Меню — Итальянские блюда | Lounge Antico',
-    description: 'Полное меню Lounge Antico Тбилиси. Паста ручной работы, пицца, морепродукты, трюфель, тирамису. Сезонные ингредиенты. Цены в GEL.',
+    title: 'Меню — Грузинские и европейские блюда | Lounge Antico',
+    description: 'Полное меню Lounge Antico Шекветили. Супы, салаты, гриль, пицца, морепродукты, десерты, кофе и напитки. Свежие сезонные ингредиенты. Цены в GEL.',
   },
 }
 

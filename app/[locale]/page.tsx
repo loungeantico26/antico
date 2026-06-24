@@ -5,16 +5,16 @@ import { SITE_URL, OG_IMAGE } from '@/lib/seo'
 
 const pageMeta: Record<string, { title: string; description: string }> = {
   ka: {
-    title: 'Lounge Antico — იტალიური რესტორანი თბილისში | მთავარი',
-    description: '2015 წლიდან — პრემიუმ იტალიური სამზარეულო ქართული სტუმართმოყვარეობით. ჯავშანი, ხელნაკეთი პასტა, სეზონური მენიუ. რუსთაველის გამზ. 12, თბილისი.',
+    title: 'Lounge Antico — შეკვეთილი | მთავარი',
+    description: '2023 წლიდან — ქართული და ევროპული სამზარეულო დენდროლოგიური პარკის შესასვლელში. გარე მაგიდები, ავტოსადგომი, ჯავშანი. შეკვეთილი, ოზურგეთი.',
   },
   en: {
-    title: 'Lounge Antico — Italian Restaurant Tbilisi | Home',
-    description: 'Since 2015 — premium Italian cuisine with Georgian hospitality in Tbilisi. Table reservations, handmade pasta, seasonal menu. Rustaveli Ave 12.',
+    title: 'Lounge Antico — Shekvetili | Home',
+    description: 'Since 2023 — Georgian and European cuisine at the entrance of Shekvetili Dendrological Park. Outdoor seating, bus parking, table reservations. Ozurgeti.',
   },
   ru: {
-    title: 'Lounge Antico — Итальянский ресторан Тбилиси | Главная',
-    description: 'С 2015 года — премиальная итальянская кухня с грузинским гостеприимством. Бронирование, паста ручной работы, сезонное меню. Проспект Руставели 12.',
+    title: 'Lounge Antico — Шекветили | Главная',
+    description: 'С 2023 года — грузинская и европейская кухня у входа в Дендрологический парк Шекветили. Открытая терраса, парковка для автобусов, бронирование.',
   },
 }
 

@@ -7,12 +7,8 @@ const schema = {
   alternateName: 'Antico',
   url: SITE_URL,
   logo: `${SITE_URL}/logo.png`,
-  image: [
-    'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&q=80',
-    'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80',
-    'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80',
-  ],
-  description: 'Premium Italian restaurant with Georgian hospitality in Shekvetili, Ozurgeti, Georgia.',
+  image: [`${SITE_URL}/og-image.png`],
+  description: 'Georgian and European cuisine at the entrance of the Dendrological Park in Shekvetili, Ozurgeti, Georgia. Outdoor seating, large bus parking, open daily.',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Shekvetili (Natanebi)',
@@ -30,7 +26,7 @@ const schema = {
     'https://www.instagram.com/lounge.antico/',
     'https://www.google.com/maps/place/Lounge+Antico+Restaurant/@41.9594447,41.7731486,17z',
   ],
-  servesCuisine: ['Italian', 'European', 'Mediterranean'],
+  servesCuisine: ['Georgian', 'European'],
   priceRange: '₾₾₾',
   currenciesAccepted: 'GEL',
   paymentAccepted: 'Cash, Credit Card',
