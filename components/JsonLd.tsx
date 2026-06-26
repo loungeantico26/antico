@@ -8,7 +8,7 @@ const schema = {
   url: SITE_URL,
   logo: `${SITE_URL}/logo.png`,
   image: [`${SITE_URL}/og-image.png`],
-  description: 'Georgian and European cuisine at the entrance of the Dendrological Park in Shekvetili, Ozurgeti, Georgia. Outdoor seating, large bus parking, open daily.',
+  description: 'Georgian and European cuisine across from the Dendrological Park in Shekvetili, Ozurgeti, Georgia. Outdoor seating, large bus parking, open daily.',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Shekvetili (Natanebi)',

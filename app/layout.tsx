@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     default: 'Lounge Antico — რესტორანი შეკვეთილში',
     template: '%s | Lounge Antico',
   },
-  description: 'Lounge Antico — ქართული და ევროპული სამზარეულო შეკვეთილის დენდროლოგიური პარკის შესასვლელში. ჯავშანი, სეზონური მენიუ, გარე მაგიდები, დიდი პარკინგი.',
+  description: 'Lounge Antico — ქართული და ევროპული სამზარეულო შეკვეთილის დენდროლოგიური პარკის მოპირდაპირე მხარეს. ჯავშანი, სეზონური მენიუ, გარე მაგიდები, დიდი პარკინგი.',
   keywords: [
     'Lounge Antico', 'Antico Shekvetili', 'restaurant Shekvetili',
     'ქართული რესტორანი', 'Georgian restaurant Georgia', 'ресторан Шекветили',

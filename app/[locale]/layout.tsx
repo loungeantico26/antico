@@ -17,17 +17,17 @@ type LocaleMeta = { title: string; description: string; ogLocale: string }
 const localeMeta: Record<string, LocaleMeta> = {
   ka: {
     title: 'Lounge Antico — ქართული და ევროპული სამზარეულო შეკვეთილში',
-    description: '2023 წლიდან — ქართული და ევროპული სამზარეულო შეკვეთილის დენდროლოგიური პარკის შესასვლელში. გარე მაგიდები, ჯავშანი, სეზონური მენიუ.',
+    description: '2023 წლიდან — ქართული და ევროპული სამზარეულო შეკვეთილის დენდროლოგიური პარკის მოპირდაპირე მხარეს. გარე მაგიდები, ჯავშანი, სეზონური მენიუ.',
     ogLocale: 'ka_GE',
   },
   en: {
     title: 'Lounge Antico — Georgian & European Restaurant in Shekvetili',
-    description: 'Since 2023 — Georgian and European cuisine at the entrance of Shekvetili Dendrological Park. Outdoor seating, large parking, table reservations.',
+    description: 'Since 2023 — Georgian and European cuisine across from the Shekvetili Dendrological Park. Outdoor seating, large parking, table reservations.',
     ogLocale: 'en_US',
   },
   ru: {
     title: 'Lounge Antico — Грузинская и европейская кухня в Шекветили',
-    description: 'С 2023 года — грузинская и европейская кухня у входа в Дендрологический парк Шекветили. Открытая терраса, большая парковка, бронирование столов.',
+    description: 'С 2023 года — грузинская и европейская кухня напротив Дендрологического парка Шекветили. Открытая терраса, большая парковка, бронирование столов.',
     ogLocale: 'ru_RU',
   },
 }

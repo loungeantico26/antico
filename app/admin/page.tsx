@@ -58,10 +58,17 @@ async function fetchContent(): Promise<Content> {
 
   const fallback = await fetch('/data/content.json').then((r) => r.json()).catch(() => ({}))
 
+  const sbHero = map.hero as Content['hero']
+  const sbAbout = map.about as Content['about']
+
+  // Use JSON if Supabase has stale data (old Unsplash URLs or old Italian/2015 references)
+  const hero = (sbHero?.backgroundUrl?.includes('unsplash') || !sbHero) ? fallback.hero : sbHero
+  const about = (sbAbout?.text1?.includes('2015') || sbAbout?.text1?.includes('იტალიური') || !sbAbout) ? fallback.about : sbAbout
+
   return {
     site: (map.site as Content['site']) || fallback.site || { name: 'Lounge Antico', tagline: '', footerText: '' },
-    hero: (map.hero as Content['hero']) || fallback.hero || {},
-    about: (map.about as Content['about']) || fallback.about || {},
+    hero: hero || {},
+    about: about || {},
     features: (map.features as Content['features']) || fallback.features || [],
     cta: (map.cta as Content['cta']) || fallback.cta || {},
     testimonials: (testimonialsRes.data as Content['testimonials']) || fallback.testimonials || [],
