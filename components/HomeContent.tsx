@@ -6,28 +6,36 @@ import { ChevronDown, Star } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { supabase } from '@/lib/supabase'
-import contentJson from '@/data/content.json'
+import { fetchHomeData, fallback, type HomeData } from '@/lib/home-data'
 
-type Feature = { icon: string; title: string; desc: string }
-type Testimonial = { id: string; name: string; text: string; rating: number }
-type HeroData = { backgroundUrl: string; badge: string; heading: string; subheading: string; cta1: string; cta2: string }
-type AboutData = { badge: string; heading: string; text1: string; text2: string; imageUrl: string; yearsLabel: string; yearsText: string; cta: string }
-type CtaData = { backgroundUrl: string; badge: string; heading: string; text: string; cta: string }
+const CACHE_KEY = 'antico_home_v4'
+const OLD_KEYS = ['antico_home_v1', 'antico_home_v2', 'antico_home_v3']
 
-type HomeData = {
-  hero: HeroData
-  about: AboutData
-  features: Feature[]
-  cta: CtaData
-  testimonials: Testimonial[]
+function localUrl(url: string | undefined, def: string): string {
+  if (!url || !url.startsWith('/')) return def
+  return url
 }
 
-const fallback: HomeData = {
-  hero: contentJson.hero as HeroData,
-  about: contentJson.about as AboutData,
-  features: contentJson.features as Feature[],
-  cta: contentJson.cta as CtaData,
-  testimonials: contentJson.testimonials as Testimonial[],
+function sanitizeCache(d: HomeData): HomeData {
+  return {
+    ...d,
+    hero: { ...d.hero, backgroundUrl: localUrl(d.hero?.backgroundUrl, fallback.hero.backgroundUrl) },
+    about: { ...d.about, imageUrl: localUrl(d.about?.imageUrl, fallback.about.imageUrl) },
+    cta: { ...d.cta, backgroundUrl: localUrl(d.cta?.backgroundUrl, fallback.cta.backgroundUrl) },
+  }
+}
+
+function readCache(): HomeData | null {
+  try {
+    OLD_KEYS.forEach((k) => localStorage.removeItem(k))
+    const raw = localStorage.getItem(CACHE_KEY)
+    if (!raw) return null
+    return sanitizeCache(JSON.parse(raw) as HomeData)
+  } catch { return null }
+}
+
+function writeCache(data: HomeData) {
+  try { localStorage.setItem(CACHE_KEY, JSON.stringify(data)) } catch {}
 }
 
 export default function HomeContent() {
@@ -35,30 +43,31 @@ export default function HomeContent() {
   const [data, setData] = useState<HomeData>(fallback)
 
   useEffect(() => {
-    async function load() {
-      const [contentRes, testimonialsRes] = await Promise.all([
-        supabase.from('site_content').select('key, value').in('key', ['hero', 'about', 'features', 'cta']),
-        supabase.from('testimonials').select('*').order('sort_order'),
-      ])
+    const cached = readCache()
+    if (cached) setData(cached)
 
-      const map: Record<string, unknown> = {}
-      ;(contentRes.data || []).forEach((row: { key: string; value: unknown }) => { map[row.key] = row.value })
+    fetchHomeData().then((fresh) => {
+      setData(fresh)
+      writeCache(fresh)
+    })
 
-      setData({
-        hero: (map.hero as HeroData) || fallback.hero,
-        about: (map.about as AboutData) || fallback.about,
-        features: (map.features as Feature[]) || fallback.features,
-        cta: (map.cta as CtaData) || fallback.cta,
-        testimonials: (testimonialsRes.data as Testimonial[])?.length
-          ? (testimonialsRes.data as Testimonial[])
-          : fallback.testimonials,
+    const channel = supabase
+      .channel('home-content-live')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'site_content' }, () => {
+        fetchHomeData().then((fresh) => { setData(fresh); writeCache(fresh) })
       })
-    }
-    load()
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'testimonials' }, () => {
+        fetchHomeData().then((fresh) => { setData(fresh); writeCache(fresh) })
+      })
+      .subscribe()
+
+    return () => { supabase.removeChannel(channel) }
   }, [])
 
   const { hero, about, features, cta, testimonials } = data
-  const heroBg = hero.backgroundUrl?.includes('unsplash') ? '/og-image.png' : (hero.backgroundUrl || '/og-image.png')
+  const heroBg = localUrl(hero.backgroundUrl, fallback.hero.backgroundUrl)
+  const aboutImg = localUrl(about.imageUrl, fallback.about.imageUrl)
+  const ctaBg = localUrl(cta.backgroundUrl, fallback.cta.backgroundUrl)
 
   return (
     <>
@@ -69,15 +78,15 @@ export default function HomeContent() {
           <div className="absolute inset-0 bg-dark/70" />
         </div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
-          <p className="section-subtitle">{t('heroBadge')}</p>
+          <p className="section-subtitle">{hero.badge || t('heroBadge')}</p>
           <h1 className="text-5xl md:text-7xl font-serif text-cream mb-6 leading-tight tracking-widest">LOUNGE ANTICO</h1>
           <div className="gold-divider" />
           <p className="text-cream/80 text-lg md:text-xl max-w-xl mx-auto mb-10 leading-relaxed font-light">
-            {t('heroSubheading')}
+            {hero.subheading || t('heroSubheading')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/reservation" className="btn-primary">{t('heroCta1')}</Link>
-            <Link href="/menu" className="btn-outline">{t('heroCta2')}</Link>
+            <Link href="/reservation" className="btn-primary">{hero.cta1 || t('heroCta1')}</Link>
+            <Link href="/menu" className="btn-outline">{hero.cta2 || t('heroCta2')}</Link>
           </div>
         </div>
         <a href="#about" className="absolute bottom-10 left-1/2 -translate-x-1/2 text-gold animate-bounce">
@@ -89,16 +98,16 @@ export default function HomeContent() {
       <section id="about" className="py-28 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <p className="section-subtitle">{t('aboutBadge')}</p>
-            <h2 className="section-title">{t('aboutHeading')}</h2>
+            <p className="section-subtitle">{about.badge || t('aboutBadge')}</p>
+            <h2 className="section-title">{about.heading || t('aboutHeading')}</h2>
             <div className="w-16 h-px bg-gold mb-8" />
-            <p className="text-cream/70 leading-relaxed mb-6">{t('aboutText1')}</p>
-            <p className="text-cream/70 leading-relaxed mb-10">{t('aboutText2')}</p>
-            <Link href="/gallery" className="btn-outline">{t('aboutCta')}</Link>
+            <p className="text-cream/70 leading-relaxed mb-6">{about.text1 || t('aboutText1')}</p>
+            <p className="text-cream/70 leading-relaxed mb-10">{about.text2 || t('aboutText2')}</p>
+            <Link href="/gallery" className="btn-outline">{about.cta || t('aboutCta')}</Link>
           </div>
           <div className="relative">
             <div className="aspect-[4/5] relative overflow-hidden">
-              <Image src={about.imageUrl} alt="Chef at Antico" fill className="object-cover" />
+              <Image src={aboutImg} alt="Lounge Antico" fill className="object-cover" />
             </div>
             <div className="absolute -bottom-6 -left-6 card-dark p-6 w-48">
               <div className="text-5xl font-serif text-gold">{about.yearsLabel}</div>
@@ -168,15 +177,15 @@ export default function HomeContent() {
       {/* CTA */}
       <section className="relative py-28 px-6 overflow-hidden">
         <div className="absolute inset-0">
-          <Image src={cta.backgroundUrl} alt="Restaurant atmosphere" fill className="object-cover opacity-30" />
+          <Image src={ctaBg} alt="Restaurant atmosphere" fill className="object-cover opacity-30" />
           <div className="absolute inset-0 bg-dark/80" />
         </div>
         <div className="relative z-10 max-w-2xl mx-auto text-center">
-          <p className="section-subtitle">{t('ctaBadge')}</p>
-          <h2 className="section-title">{t('ctaHeading')}</h2>
+          <p className="section-subtitle">{cta.badge || t('ctaBadge')}</p>
+          <h2 className="section-title">{cta.heading || t('ctaHeading')}</h2>
           <div className="gold-divider" />
-          <p className="text-cream/70 mb-10">{t('ctaText')}</p>
-          <Link href="/reservation" className="btn-primary">{t('ctaBtn')}</Link>
+          <p className="text-cream/70 mb-10">{cta.text || t('ctaText')}</p>
+          <Link href="/reservation" className="btn-primary">{cta.cta || t('ctaBtn')}</Link>
         </div>
       </section>
     </>

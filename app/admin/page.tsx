@@ -46,6 +46,17 @@ const TABS = [
   { id: 'contact', label: 'კონტაქტი' },
 ]
 
+function isStaleContent(obj: unknown): boolean {
+  const s = JSON.stringify(obj || '').toLowerCase()
+  return (
+    s.includes('italian') ||
+    s.includes('ristorante') ||
+    s.includes('lorem ipsum') ||
+    s.includes('fine dining') ||
+    s.includes('passion for food')
+  )
+}
+
 async function fetchContent(): Promise<Content> {
   const [contentRes, galleryRes, testimonialsRes] = await Promise.all([
     supabase.from('site_content').select('key, value'),
@@ -60,17 +71,20 @@ async function fetchContent(): Promise<Content> {
 
   const sbHero = map.hero as Content['hero']
   const sbAbout = map.about as Content['about']
+  const sbCta = map.cta as Content['cta']
+  const sbSite = map.site as Content['site']
 
-  // Use JSON if Supabase has stale data (old Unsplash URLs or old Italian/2015 references)
-  const hero = (sbHero?.backgroundUrl?.includes('unsplash') || !sbHero) ? fallback.hero : sbHero
-  const about = (sbAbout?.text1?.includes('2015') || sbAbout?.text1?.includes('იტალიური') || !sbAbout) ? fallback.about : sbAbout
+  const hero = (!sbHero || sbHero.backgroundUrl?.includes('unsplash') || isStaleContent(sbHero)) ? fallback.hero : sbHero
+  const about = (!sbAbout || sbAbout.text1?.includes('2015') || sbAbout.text1?.includes('იტალიური') || isStaleContent(sbAbout)) ? fallback.about : sbAbout
+  const cta = (!sbCta || !sbCta.backgroundUrl?.startsWith('/') || isStaleContent(sbCta)) ? fallback.cta : sbCta
+  const site = (!sbSite || isStaleContent(sbSite)) ? fallback.site : sbSite
 
   return {
-    site: (map.site as Content['site']) || fallback.site || { name: 'Lounge Antico', tagline: '', footerText: '' },
-    hero: hero || {},
-    about: about || {},
+    site: site || fallback.site || { name: 'Lounge Antico', tagline: '', footerText: '' },
+    hero: hero || fallback.hero || {},
+    about: about || fallback.about || {},
     features: (map.features as Content['features']) || fallback.features || [],
-    cta: (map.cta as Content['cta']) || fallback.cta || {},
+    cta: cta || fallback.cta || {},
     testimonials: (testimonialsRes.data as Content['testimonials']) || fallback.testimonials || [],
     gallery: (galleryRes.data as Content['gallery']) || fallback.gallery || [],
     contact: (map.contact as Content['contact']) || fallback.contact || {},
