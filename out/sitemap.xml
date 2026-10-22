@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home -->
+  <url>
+    <loc>https://loungeantico.com/ka</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://loungeantico.com/ka"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loungeantico.com/en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://loungeantico.com/ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loungeantico.com/ka"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://loungeantico.com/en</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://loungeantico.com/ru</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Menu -->
+  <url>
+    <loc>https://loungeantico.com/ka/menu</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://loungeantico.com/ka/menu"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loungeantico.com/en/menu"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://loungeantico.com/ru/menu"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://loungeantico.com/en/menu</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://loungeantico.com/ru/menu</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Reservation -->
+  <url>
+    <loc>https://loungeantico.com/ka/reservation</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://loungeantico.com/ka/reservation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loungeantico.com/en/reservation"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://loungeantico.com/ru/reservation"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://loungeantico.com/en/reservation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://loungeantico.com/ru/reservation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Gallery -->
+  <url>
+    <loc>https://loungeantico.com/ka/gallery</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://loungeantico.com/ka/gallery"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loungeantico.com/en/gallery"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://loungeantico.com/ru/gallery"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://loungeantico.com/en/gallery</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://loungeantico.com/ru/gallery</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://loungeantico.com/ka/contact</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://loungeantico.com/ka/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loungeantico.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://loungeantico.com/ru/contact"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://loungeantico.com/en/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://loungeantico.com/ru/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

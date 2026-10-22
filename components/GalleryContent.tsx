@@ -60,7 +60,7 @@ export default function GalleryContent() {
         <p className="section-subtitle">{t('ctaSubtitle')}</p>
         <h2 className="text-3xl font-serif text-cream mb-6">{t('ctaTitle')}</h2>
         <div className="gold-divider" />
-        <Link href="/reservation" className="btn-primary">{t('ctaBtn')}</Link>
+        <Link href="/contact" className="btn-primary">{t('ctaBtn')}</Link>
       </section>
     </>
   )

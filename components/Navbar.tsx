@@ -75,10 +75,6 @@ export default function Navbar() {
               {l.label}
             </Link>
           ))}
-          <Link href="/reservation" className="btn-primary text-xs py-2 px-6">
-            {t('bookTable')}
-          </Link>
-
           {/* Auth link */}
           <Link
             href={loggedIn ? '/account' : '/auth/login'}

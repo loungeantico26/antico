@@ -13,7 +13,7 @@
   "home": {
     "heroBadge": "— Shekvetili, Georgia —",
     "heroSubheading": "Georgian & European cuisine, across from the Dendrological Park",
-    "heroCta1": "Book a Table",
+    "heroCta1": "Contact Us",
     "heroCta2": "View Menu",
     "aboutBadge": "About Us",
     "aboutHeading": "Where dining becomes an art",
@@ -37,10 +37,10 @@
     "menuCta": "Full Menu",
     "testimonialsSubtitle": "Guest Reviews",
     "testimonialsTitle": "What they say about us",
-    "ctaBadge": "Book Now",
+    "ctaBadge": "Visit Us",
     "ctaHeading": "Have you tasted Antico?",
-    "ctaText": "Our team is ready to prepare a special evening for you. Book your table now.",
-    "ctaBtn": "Book a Table"
+    "ctaText": "Our team is ready to prepare a special evening for you. Contact us now.",
+    "ctaBtn": "Contact"
   },
   "menu": {
     "badge": "Lounge Antico",
@@ -56,7 +56,7 @@
     "subtitle": "Our atmosphere, dishes and unforgettable moments.",
     "ctaSubtitle": "Experience with us",
     "ctaTitle": "Come visit us",
-    "ctaBtn": "Book a Table"
+    "ctaBtn": "Contact"
   },
   "reservation": {
     "badge": "Lounge Antico",

@@ -41,7 +41,6 @@ export default function Footer() {
   const navLinks = [
     { href: '/menu' as const, label: t('menu') },
     { href: '/gallery' as const, label: t('gallery') },
-    { href: '/reservation' as const, label: t('reservation') },
     { href: '/contact' as const, label: t('contact') },
   ]
 

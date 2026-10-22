@@ -85,7 +85,7 @@ export default function HomeContent() {
             {hero.subheading || t('heroSubheading')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/reservation" className="btn-primary">{hero.cta1 || t('heroCta1')}</Link>
+            <Link href="/contact" className="btn-primary">{hero.cta1 || t('heroCta1')}</Link>
             <Link href="/menu" className="btn-outline">{hero.cta2 || t('heroCta2')}</Link>
           </div>
         </div>
@@ -185,7 +185,7 @@ export default function HomeContent() {
           <h2 className="section-title">{cta.heading || t('ctaHeading')}</h2>
           <div className="gold-divider" />
           <p className="text-cream/70 mb-10">{cta.text || t('ctaText')}</p>
-          <Link href="/reservation" className="btn-primary">{cta.cta || t('ctaBtn')}</Link>
+          <Link href="/contact" className="btn-primary">{cta.cta || t('ctaBtn')}</Link>
         </div>
       </section>
     </>
